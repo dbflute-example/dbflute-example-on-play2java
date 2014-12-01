@@ -13,5 +13,7 @@ libraryDependencies ++= Seq(
   javaWs,
   "org.dbflute" % "dbflute-runtime" % "1.1.0-RC1",
   "mysql" % "mysql-connector-java" % "5.1.33",
-  "com.google.inject" % "guice" % "3.0"
+  "com.google.inject" % "guice" % "3.0",
+  "org.springframework" % "spring-jdbc" % "4.1.1.RELEASE",
+  "org.springframework" % "spring-aop" % "4.1.1.RELEASE"
 )
