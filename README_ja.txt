@@ -26,7 +26,7 @@ activator にて、eclipse with-source=true を叩く必要があります。
 #                                                 ----------
 1. etc/tools/の下に Play を配置
 
-Play のバージョンは 2.2.2 です。
+Play のバージョンは 2.3.2 です。
 
 http://downloads.typesafe.com/play/2.2.2/play-2.2.2.zip
 をダウンロードして、以下のように配置してください。
