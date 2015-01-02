@@ -76,7 +76,7 @@ map:{
     #      --> org.docksidestage.dbflute.exbhv
     #      --> org.docksidestage.dbflute.exentity
     #
-    ; packageBase = dbflute
+    ; packageBase = docksidestage.dbflute
     # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
