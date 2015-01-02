@@ -10,10 +10,11 @@ dist
 /out
 /.idea_modules
 /.classpath
-# only .project is committed for easy import
+# committed for easy import
 #/.project
 /RUNNING_PID
-/.settings
+# committed for sharing
+#/.settings
 /activator
 /activator-launch-*jar
 /activator.bat
