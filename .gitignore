@@ -15,6 +15,3 @@ dist
 /RUNNING_PID
 # committed for sharing
 #/.settings
-/activator
-/activator-launch-*jar
-/activator.bat
