@@ -45,8 +45,6 @@ public class TopController extends Controller {
         }).alwaysPresent(member -> {
             member.setMemberName("seasea");
             memberBhv.update(member);
-            
-            throw new RuntimeException("@@@@@@@");
         });
         return ok(index.render("Your new application is ready."));
     }
