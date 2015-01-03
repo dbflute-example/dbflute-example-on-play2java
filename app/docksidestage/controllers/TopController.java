@@ -38,7 +38,7 @@ public class TopController extends Controller {
 
     @Transactional
     public Result index() {
-        // TODO jflute example: Play2 Transaction
+        // TODO jflute example: Play2 fitting
         memberBhv.selectEntity(cb -> {
             cb.setupSelect_MemberStatus();
             cb.acceptPK(1);
@@ -46,7 +46,7 @@ public class TopController extends Controller {
             member.setMemberName("seasea");
             memberBhv.update(member);
             
-            //throw new RuntimeException("@@@@@@@");
+            throw new RuntimeException("@@@@@@@");
         });
         return ok(index.render("Your new application is ready."));
     }

@@ -48,16 +48,29 @@ public class RequestLoggingPlayer<RESULT> {
     // ===================================================================================
     //                                                                               Play!
     //                                                                               =====
-    public RESULT play(Request request, Context ctx, NextPlayer<RESULT> supplier) throws Throwable {
-        final long before = before(request, ctx);
+    public RESULT play(Request request, Context ctx, ActionNextPlayer<RESULT> nextPlayer) throws Throwable {
+        Long before = null;
+        if (LOG.isDebugEnabled()) {
+            before = before(request, ctx);
+        }
+        boolean existsServerError = false;
         try {
-            return supplier.play();
+            return nextPlayer.play();
         } catch (Exception e) { // not catch error
-            // TODO jflute 
+            existsServerError = true;
+            // TODO jflute example: Play2, #hope arrange log message (want to remove duplicate display)
+            String msg = buildErrorMessage(request, ctx, "#exception occurred.", e);
+            LOG.error(msg); // play2 shows details so request info only here
             throw e;
         } finally {
-            final long after = System.currentTimeMillis();
-            after(request, ctx, before, after);
+            if (LOG.isDebugEnabled()) {
+                if (existsServerError) {
+                    attention(request, ctx);
+                } else {
+                    final long after = System.currentTimeMillis();
+                    after(request, ctx, before, after);
+                }
+            }
         }
     }
 
@@ -65,9 +78,6 @@ public class RequestLoggingPlayer<RESULT> {
     //                                                                              Before
     //                                                                              ======
     public long before(Request request, Context ctx) {
-        if (!LOG.isDebugEnabled()) {
-            return -1L;
-        }
         final StringBuilder sb = new StringBuilder();
         final String beginDecoration = "* * * * * * * * * * {BEGIN}: ";
         sb.append(beginDecoration);
@@ -96,7 +106,7 @@ public class RequestLoggingPlayer<RESULT> {
         sb.append(", QUERY_STRING=").append(request.queryString());
         if (showResponse) {
             sb.append(LF).append(IND);
-            //buildResponseInfo(sb, request, response);
+            buildResponseInfo(sb, request, ctx);
         }
 
         sb.append(LF);
@@ -276,6 +286,34 @@ public class RequestLoggingPlayer<RESULT> {
             // e.g. Jetty
             // HTTP/1.1 200  Expires: Thu, 01-Jan-1970 00:00:00 GMT Set-Cookie: ...
         }
+    }
+
+    // ===================================================================================
+    //                                                                             Failure
+    //                                                                             =======
+    protected String buildErrorMessage(Request request, Context ctx, String comment, Throwable e) {
+        final StringBuilder sb = new StringBuilder();
+        sb.append(comment);
+        sb.append(LF);
+        sb.append("/= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =: " + getTitlePath(request));
+        sb.append(LF).append(IND);
+        try {
+            buildRequestInfo(sb, request, ctx, true);
+        } catch (RuntimeException continued) {
+            sb.append("*Failed to get request info: " + continued.getMessage());
+            sb.append(LF);
+        }
+        sb.append("= = = = = = = = = =/");
+        return sb.toString().trim();
+    }
+
+    protected void attention(Request request, Context ctx) {
+        final StringBuilder sb = new StringBuilder();
+        sb.append("{FAILURE}: ").append(getTitlePath(request));
+        sb.append(LF);
+        sb.append(" *Read the exception message!");
+        sb.append(LF);
+        LOG.debug(sb.toString());
     }
 
     // ===================================================================================

@@ -39,7 +39,7 @@ public class DBFluteContextPlayer<RESULT> {
     // ===================================================================================
     //                                                                               Play!
     //                                                                               =====
-    public RESULT play(Request request, Context ctx, NextPlayer<RESULT> nextPlayer) throws Throwable {
+    public RESULT play(Request request, Context ctx, ActionNextPlayer<RESULT> nextPlayer) throws Throwable {
         try {
             setupAccessContextOnRequestBegin(request, ctx);
             setupCallbackContextOnRequestBegin();
@@ -60,7 +60,7 @@ public class DBFluteContextPlayer<RESULT> {
 
     public AccessContext createAccessContext(Request request, Context ctx) {
         final AccessContext context = new AccessContext();
-        context.setAccessUser("EXAMPLE_USER"); // actually from login user
+        context.setAccessUser("EXAMPLE_USER"); // TODO jflute example: Play2, #later actually from login user
         context.setAccessLocalDateTime(DBFluteSystem.currentLocalDateTime());
         return context;
     }
@@ -83,7 +83,7 @@ public class DBFluteContextPlayer<RESULT> {
     }
 
     protected Method findActionMethod() {
-        // TODO jflute example: Play2, non reflection for performance
+        // TODO jflute example: Play2, #later non reflection for performance, waiting for 1.1.0-SP1
         final Class<?> controllerType = DfReflectionUtil.forName(getRouteController());
         return DfReflectionUtil.getPublicMethod(controllerType, getRouteActionMethod(), (Class<?>[]) null);
     }

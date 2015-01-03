@@ -38,7 +38,7 @@ public class CallingLoggingPlayer<RESULT> {
     // ===================================================================================
     //                                                                               Play!
     //                                                                               =====
-    public RESULT play(Request request, Context ctx, NextPlayer<RESULT> nextPlayer) throws Throwable {
+    public RESULT play(Request request, Context ctx, ActionNextPlayer<RESULT> nextPlayer) throws Throwable {
         showController();
         return nextPlayer.play();
     }

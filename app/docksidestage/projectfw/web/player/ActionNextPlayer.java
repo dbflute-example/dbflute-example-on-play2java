@@ -20,7 +20,7 @@ package docksidestage.projectfw.web.player;
  * @author jflute
  */
 @FunctionalInterface
-public interface NextPlayer<RESULT> {
+public interface ActionNextPlayer<RESULT> {
 
     RESULT play() throws Throwable;
 }
