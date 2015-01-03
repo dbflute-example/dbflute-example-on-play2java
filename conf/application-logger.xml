@@ -1,0 +1,31 @@
+<configuration>
+
+  <conversionRule conversionWord="coloredLevel" converterClass="play.api.Logger$ColoredLevel" />
+  
+  <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+    <file>${application.home}/logs/application.log</file>
+    <encoder>
+      <pattern>%date %thread %level %logger{15} - %message%n%xException</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%date %coloredLevel %logger{15} - %message%n%xException{5}</pattern>
+    </encoder>
+  </appender>
+
+  <!-- #appfit -->
+  <logger name="play" level="INFO" />
+  <logger name="application" level="INFO" />
+  <logger name="docksidestage" level="DEBUG" /> <!-- this application package -->
+  <logger name="org.dbflute" level="DEBUG" /> <!-- DBFlute shows query log -->
+  <logger name="com.google" level="ERROR" /> <!-- remove byte code generation log -->
+  <logger name="org.springframework.jdbc.datasource.DataSourceTransactionManager" level="DEBUG" /> <!-- transaction -->
+
+  <root level="ERROR">
+    <appender-ref ref="STDOUT" />
+    <appender-ref ref="FILE" />
+  </root>
+
+</configuration>
