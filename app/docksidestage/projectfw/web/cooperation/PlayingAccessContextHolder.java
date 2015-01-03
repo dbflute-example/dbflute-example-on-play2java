@@ -13,7 +13,7 @@
  * either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-package docksidestage.projectfw.web;
+package docksidestage.projectfw.web.cooperation;
 
 import org.dbflute.hook.AccessContext;
 import org.dbflute.hook.AccessContext.AccessContextHolder;
@@ -26,7 +26,7 @@ import play.mvc.Http;
  */
 public class PlayingAccessContextHolder implements AccessContextHolder {
 
-    private static final String CTX_ARG_ACCESS_CONTEXT = "CTX_ARG_ACCESS_CONTEXT";
+    protected static final String CTX_ARG_ACCESS_CONTEXT = "CTX_ARG_ACCESS_CONTEXT";
 
     @Override
     public void save(AccessContext accessContext) {
@@ -36,5 +36,9 @@ public class PlayingAccessContextHolder implements AccessContextHolder {
     @Override
     public AccessContext provide() {
         return (AccessContext) Http.Context.current().args.get(CTX_ARG_ACCESS_CONTEXT);
+    }
+
+    public static void clearAccessContextFromHttpContext() {
+        Http.Context.current().args.remove(CTX_ARG_ACCESS_CONTEXT);
     }
 }

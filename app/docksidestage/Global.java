@@ -30,19 +30,17 @@ import play.mvc.Result;
 import com.google.inject.Injector;
 
 import docksidestage.projectfw.core.Components;
-import docksidestage.projectfw.web.PlayingAccessContextHolder;
-import docksidestage.projectfw.web.PlayingInjectorFactory;
-import docksidestage.projectfw.web.RequestAccessContextFactory;
-import docksidestage.projectfw.web.RequestLoggingPlayer;
+import docksidestage.projectfw.web.cooperation.PlayingAccessContextHolder;
+import docksidestage.projectfw.web.cooperation.PlayingInjectorFactory;
+import docksidestage.projectfw.web.player.CallingLoggingPlayer;
+import docksidestage.projectfw.web.player.DBFluteContextPlayer;
+import docksidestage.projectfw.web.player.RequestLoggingPlayer;
 
 /**
+ * #appfit
  * @author jflute
  */
 public class Global extends GlobalSettings {
-
-    {
-        System.out.println("@@@@@@@: " + toString());
-    }
 
     // ===================================================================================
     //                                                                 Controller Instance
@@ -57,18 +55,35 @@ public class Global extends GlobalSettings {
     //                                                                            ========
     @Override
     public void onStart(Application app) {
-        prepareAccessContextSurrogateHolder();
+        prepareAccessContextSurrogateHolder(app);
+        prepareComponentsInjector(app);
+    }
+
+    // -----------------------------------------------------
+    //                                         AccessContext
+    //                                         -------------
+    protected void prepareAccessContextSurrogateHolder(Application app) {
+        AccessContext.unlock();
+        AccessContext.useSurrogateHolder(createPlayingAccessContextHolder(app));
+    }
+
+    protected PlayingAccessContextHolder createPlayingAccessContextHolder(Application app) {
+        return new PlayingAccessContextHolder();
+    }
+
+    // -----------------------------------------------------
+    //                                              Injector
+    //                                              --------
+    protected void prepareComponentsInjector(Application app) {
         Components.acceptInjector(createInjector(app));
     }
 
-    protected void prepareAccessContextSurrogateHolder() {
-        AccessContext.unlock();
-        AccessContext.useSurrogateHolder(new PlayingAccessContextHolder());
+    protected Injector createInjector(Application app) {
+        return createPlayingInjectorFactory(app).createInjector();
     }
 
-    protected Injector createInjector(Application app) {
-        final PlayingInjectorFactory factory = new PlayingInjectorFactory(app);
-        return factory.createInjector();
+    protected PlayingInjectorFactory createPlayingInjectorFactory(Application app) {
+        return new PlayingInjectorFactory(app);
     }
 
     // ===================================================================================
@@ -80,29 +95,33 @@ public class Global extends GlobalSettings {
         return createAction(request, controllerName);
     }
 
-    protected Action.Simple createAction(Request request, final String controllerName) {
+    protected Action.Simple createAction(Request request, String controllerName) {
         return new Action.Simple() {
             public F.Promise<Result> call(Context ctx) throws Throwable {
-                final RequestLoggingPlayer loggingPlayer = new RequestLoggingPlayer();
-                return loggingPlayer.doFilter(request, ctx, () -> {
-                    setupAccessContextOnRequestBegin(request, ctx);
-                    try {
-                        return delegate.call(ctx);
-                    } finally {
-                        clearAccessContextOnRequestEnd(request, ctx);
-                    }
-                });
+                return play(request, ctx, delegate);
             }
         };
     }
 
-    protected void setupAccessContextOnRequestBegin(Request request, Context ctx) {
-        final RequestAccessContextFactory factory = new RequestAccessContextFactory();
-        final AccessContext context = factory.createAccessContext(request, ctx);
-        AccessContext.setAccessContextOnThread(context);
+    protected F.Promise<Result> play(Request request, Context ctx, Action<?> delegate) throws Throwable {
+        return createRequestLoggingFilter().play(request, ctx, () -> {
+            return createDBFluteContextFilter().play(request, ctx, () -> {
+                return createCallingLoggingFilter().play(request, ctx, () -> {
+                    return delegate.call(ctx);
+                });
+            });
+        });
     }
 
-    protected void clearAccessContextOnRequestEnd(Request request, Context ctx) {
-        AccessContext.clearAccessContextOnThread();
+    protected RequestLoggingPlayer<F.Promise<Result>> createRequestLoggingFilter() {
+        return new RequestLoggingPlayer<F.Promise<Result>>();
+    }
+
+    protected DBFluteContextPlayer<F.Promise<Result>> createDBFluteContextFilter() {
+        return new DBFluteContextPlayer<F.Promise<Result>>();
+    }
+
+    protected CallingLoggingPlayer<F.Promise<Result>> createCallingLoggingFilter() {
+        return new CallingLoggingPlayer<F.Promise<Result>>();
     }
 }

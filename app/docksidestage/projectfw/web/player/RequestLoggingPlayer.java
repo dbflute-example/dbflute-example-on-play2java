@@ -13,7 +13,7 @@
  * either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-package docksidestage.projectfw.web;
+package docksidestage.projectfw.web.player;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -32,10 +32,11 @@ import play.mvc.Http.Response;
 import play.mvc.Http.Session;
 
 /**
+ * @param <RESULT> The type of play result.
  * @author jflute
  * @since 1.1.0 (2015/01/02)
  */
-public class RequestLoggingPlayer {
+public class RequestLoggingPlayer<RESULT> {
 
     // ===================================================================================
     //                                                                          Definition
@@ -45,17 +46,15 @@ public class RequestLoggingPlayer {
     protected static final String IND = "  ";
 
     // ===================================================================================
-    //                                                                          doFilter()
-    //                                                                          ==========
-    @FunctionalInterface
-    public static interface ActualProcessor<RESULT> {
-        RESULT process() throws Throwable;
-    }
-
-    public <RESULT> RESULT doFilter(Request request, Context ctx, ActualProcessor<RESULT> supplier) throws Throwable {
+    //                                                                               Play!
+    //                                                                               =====
+    public RESULT play(Request request, Context ctx, NextPlayer<RESULT> supplier) throws Throwable {
         final long before = before(request, ctx);
         try {
-            return supplier.process();
+            return supplier.play();
+        } catch (Exception e) { // not catch error
+            // TODO jflute 
+            throw e;
         } finally {
             final long after = System.currentTimeMillis();
             after(request, ctx, before, after);
@@ -66,6 +65,9 @@ public class RequestLoggingPlayer {
     //                                                                              Before
     //                                                                              ======
     public long before(Request request, Context ctx) {
+        if (!LOG.isDebugEnabled()) {
+            return -1L;
+        }
         final StringBuilder sb = new StringBuilder();
         final String beginDecoration = "* * * * * * * * * * {BEGIN}: ";
         sb.append(beginDecoration);
@@ -109,6 +111,9 @@ public class RequestLoggingPlayer {
     //                                                                               After
     //                                                                               =====
     public void after(Request request, Context ctx, Long before, Long after) {
+        if (!LOG.isDebugEnabled()) {
+            return;
+        }
         final StringBuilder sb = new StringBuilder();
         sb.append(LF).append(IND);
         buildResponseInfo(sb, request, ctx);
@@ -200,8 +205,12 @@ public class RequestLoggingPlayer {
             return;
         }
         for (Entry<String, Object> entry : context.args.entrySet()) {
+            final String key = entry.getKey();
+            if (key.startsWith("ROUTE_")) { // internal info, and other logging shows it
+                continue;
+            }
             sb.append(IND);
-            sb.append("[request] ").append(entry.getKey());
+            sb.append("[request] ").append(key);
             sb.append("=").append(filterAttributeDisp(entry.getValue()));
             sb.append(LF);
         }

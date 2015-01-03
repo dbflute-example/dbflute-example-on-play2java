@@ -13,24 +13,14 @@
  * either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-package docksidestage.projectfw.web;
-
-import org.dbflute.hook.AccessContext;
-import org.dbflute.system.DBFluteSystem;
-
-import play.mvc.Http.Context;
-import play.mvc.Http.Request;
+package docksidestage.projectfw.web.player;
 
 /**
+ * @param <RESULT> The type of play result
  * @author jflute
- * @since 1.1.0 (2015/01/02)
  */
-public class RequestAccessContextFactory {
+@FunctionalInterface
+public interface NextPlayer<RESULT> {
 
-    public AccessContext createAccessContext(Request request, Context ctx) {
-        final AccessContext context = new AccessContext();
-        context.setAccessUser("EXAMPLE_USER"); // actually from login user
-        context.setAccessLocalDateTime(DBFluteSystem.currentLocalDateTime());
-        return context;
-    }
+    RESULT play() throws Throwable;
 }
