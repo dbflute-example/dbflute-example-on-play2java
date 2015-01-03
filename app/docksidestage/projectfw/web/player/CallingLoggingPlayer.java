@@ -40,6 +40,7 @@ public class CallingLoggingPlayer<RESULT> {
     //                                                                               =====
     public RESULT play(Request request, Context ctx, ActionNextPlayer<RESULT> nextPlayer) throws Throwable {
         showController();
+        // TODO jflute example: Play2, #hope show HTML name
         return nextPlayer.play();
     }
 

@@ -27,7 +27,7 @@ import org.dbflute.util.DfReflectionUtil;
 import play.mvc.Http;
 import play.mvc.Http.Context;
 import play.mvc.Http.Request;
-import docksidestage.projectfw.web.cooperation.PlayingAccessContextHolder;
+import docksidestage.projectfw.web.collaboration.PlayingAccessContextHolder;
 
 /**
  * @param <RESULT> The type of play result.

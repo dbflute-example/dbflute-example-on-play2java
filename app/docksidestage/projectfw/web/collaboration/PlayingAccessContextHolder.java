@@ -13,7 +13,7 @@
  * either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-package docksidestage.projectfw.web.cooperation;
+package docksidestage.projectfw.web.collaboration;
 
 import org.dbflute.hook.AccessContext;
 import org.dbflute.hook.AccessContext.AccessContextHolder;

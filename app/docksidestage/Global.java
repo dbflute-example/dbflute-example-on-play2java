@@ -30,8 +30,8 @@ import play.mvc.Result;
 import com.google.inject.Injector;
 
 import docksidestage.projectfw.core.Components;
-import docksidestage.projectfw.web.cooperation.PlayingAccessContextHolder;
-import docksidestage.projectfw.web.cooperation.PlayingInjectorFactory;
+import docksidestage.projectfw.web.collaboration.PlayingAccessContextHolder;
+import docksidestage.projectfw.web.collaboration.PlayingInjectorFactory;
 import docksidestage.projectfw.web.player.CallingLoggingPlayer;
 import docksidestage.projectfw.web.player.DBFluteContextPlayer;
 import docksidestage.projectfw.web.player.RequestLoggingPlayer;
