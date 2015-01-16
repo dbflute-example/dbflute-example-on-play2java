@@ -29,7 +29,7 @@ import docksidestage.dbflute.exbhv.*;
  */
 public class DBFluteModule extends AbstractModule {
 
-    protected DataSource dataSource;
+    protected final DataSource dataSource;
 
     public DBFluteModule(DataSource dataSource) {
         if (dataSource == null) {
