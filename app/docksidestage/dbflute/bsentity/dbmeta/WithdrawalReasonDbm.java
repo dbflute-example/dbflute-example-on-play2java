@@ -76,10 +76,12 @@ public class WithdrawalReasonDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "withdrawal_reason";
+    protected final String _tableDispName = "WITHDRAWAL_REASON";
     protected final String _tablePropertyName = "withdrawalReason";
     protected final TableSqlName _tableSqlName = new TableSqlName("WITHDRAWAL_REASON", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
     protected final String _tableAlias = "退会理由";
@@ -127,6 +129,11 @@ public class WithdrawalReasonDbm extends AbstractDBMeta {
     protected UniqueInfo cpui() { return hpcpui(columnWithdrawalReasonCode()); }
     public boolean hasPrimaryKey() { return true; }
     public boolean hasCompoundPrimaryKey() { return false; }
+
+    // -----------------------------------------------------
+    //                                        Unique Element
+    //                                        --------------
+    public UniqueInfo uniqueOf() { return hpcui(columnDisplayOrder()); }
 
     // ===================================================================================
     //                                                                       Relation Info

@@ -135,8 +135,8 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_purchasePaymentId == null) { return false; }
