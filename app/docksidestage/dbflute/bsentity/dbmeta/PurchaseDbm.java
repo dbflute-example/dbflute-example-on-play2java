@@ -99,10 +99,12 @@ public class PurchaseDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "purchase";
+    protected final String _tableDispName = "PURCHASE";
     protected final String _tablePropertyName = "purchase";
     protected final TableSqlName _tableSqlName = new TableSqlName("PURCHASE", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
     protected final String _tableAlias = "購入";
@@ -213,6 +215,17 @@ public class PurchaseDbm extends AbstractDBMeta {
     protected UniqueInfo cpui() { return hpcpui(columnPurchaseId()); }
     public boolean hasPrimaryKey() { return true; }
     public boolean hasCompoundPrimaryKey() { return false; }
+
+    // -----------------------------------------------------
+    //                                        Unique Element
+    //                                        --------------
+    public UniqueInfo uniqueOf() {
+        List<ColumnInfo> ls = newArrayListSized(4);
+        ls.add(columnMemberId());
+        ls.add(columnProductId());
+        ls.add(columnPurchaseDatetime());
+        return hpcui(ls);
+    }
 
     // ===================================================================================
     //                                                                       Relation Info

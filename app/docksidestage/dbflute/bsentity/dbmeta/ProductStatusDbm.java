@@ -76,10 +76,12 @@ public class ProductStatusDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "product_status";
+    protected final String _tableDispName = "PRODUCT_STATUS";
     protected final String _tablePropertyName = "productStatus";
     protected final TableSqlName _tableSqlName = new TableSqlName("PRODUCT_STATUS", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
     protected final String _tableAlias = "商品ステータス";
@@ -127,6 +129,11 @@ public class ProductStatusDbm extends AbstractDBMeta {
     protected UniqueInfo cpui() { return hpcpui(columnProductStatusCode()); }
     public boolean hasPrimaryKey() { return true; }
     public boolean hasCompoundPrimaryKey() { return false; }
+
+    // -----------------------------------------------------
+    //                                        Unique Element
+    //                                        --------------
+    public UniqueInfo uniqueOf() { return hpcui(columnDisplayOrder()); }
 
     // ===================================================================================
     //                                                                       Relation Info
