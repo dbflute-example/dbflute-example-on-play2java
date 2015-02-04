@@ -16,3 +16,4 @@ dist
 # committed for sharing
 #/.settings
 /bin
+.DS_Store
