@@ -1,0 +1,19 @@
+logs
+project/project
+project/target
+target
+tmp
+.history
+dist
+/.idea
+/*.iml
+/out
+/.idea_modules
+/.classpath
+# committed for easy import
+#/.project
+/RUNNING_PID
+# committed for sharing
+#/.settings
+/bin
+.DS_Store
