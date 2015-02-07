@@ -16,3 +16,7 @@ GET     /profile                    @docksidestage.controllers.profile.ProfileCo
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+# Login
+GET     /                           @docksidestage.controllers.TopController.index()
+POST    /doLogin                    @docksidestage.controllers.TopController.doLogin()
