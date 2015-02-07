@@ -15,18 +15,19 @@
  */
 package docksidestage.controllers.mypage;
 
-import play.db.ebean.Transactional;
+import org.springframework.transaction.annotation.Transactional;
+
 import play.mvc.Controller;
 import play.mvc.Result;
-import views.html.index;
+import views.html.mypage.mypage;
 
 /**
  * @author jflute
  */
-@Transactional
 public class MyPageController extends Controller {
 
+    @Transactional
     public Result index() {
-        return ok(index.render("Your new application is ready."));
+        return ok(mypage.render("Mypage"));
     }
 }

@@ -5,6 +5,9 @@
 # Home page
 GET     /                           @docksidestage.controllers.TopController.index()
 
+# Mypage
+GET     /mypage                     @docksidestage.controllers.mypage.MyPageController.index()
+
 # Withdrawal
 GET     /withdrawal                 @docksidestage.controllers.withdrawal.WithdrawalController.index()
 
