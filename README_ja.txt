@@ -63,7 +63,7 @@ http://localhost:9000/
 #                                                 ----------
 perrotta : ProductList, Purchase *ネギone
 rabichan : SignUp, SignIn
-light    : MyPage, Preferences
+light    : MyPage, Profile
 jflute   : English test data, English table comment, modeling, framework
 
 # ----------------------------------------------------------
