@@ -1,7 +1,22 @@
-@(message: String)
+@import docksidestage.controllers.mypage._
+@(bean: MyPageWebBean)
 
-@main("Welcome to Play") {
+<h1>Mypage</h1>
+<p>
+	最終ログイン時間: @bean.lastLoginDatetime
+</p>
+<table>
+	<tbody>
+		<tr>
+			<th>会員ID</th>
+			<td>@bean.memberId</td>
+		</tr>
+		<tr>
+			<th>名前</th>
+			<td>@bean.memberName</td>
+		</tr>
+	</tbody>
+</table>
 
-    @play20.welcome(message, style = "Java")
-
-}
+<a href="/withdrawal">withdrawal</a>
+<a href="/profile">profile</a>
