@@ -5,5 +5,18 @@
 # Home page
 GET     /                           @docksidestage.controllers.TopController.index()
 
+# Mypage
+GET     /mypage                     @docksidestage.controllers.mypage.MyPageController.index()
+
+# Withdrawal
+GET     /withdrawal                 @docksidestage.controllers.withdrawal.WithdrawalController.index()
+
+# Setting
+GET     /profile                    @docksidestage.controllers.profile.ProfileController.index()
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+# Login
+GET     /                           @docksidestage.controllers.TopController.index()
+POST    /doLogin                    @docksidestage.controllers.TopController.doLogin()

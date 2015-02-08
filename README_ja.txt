@@ -53,3 +53,69 @@ e.g.
 すると、TopControllerが実行されます。
 
 http://localhost:9000/
+
+
+# ========================================================================================
+#                                                                              Development
+#                                                                              ===========
+# ----------------------------------------------------------
+#                                                 Management
+#                                                 ----------
+perrotta : ProductList, Purchase *ネギone
+rabichan : SignUp, SignIn
+light    : MyPage, Profile
+jflute   : English test data, English table comment, modeling, framework
+
+# ----------------------------------------------------------
+#                                                     Policy
+#                                                     ------
+o 同じworkspaceで、DBFluteハンズオンのセクション１までやっておくこと (workspaceの設定のために)
+o 海外へのプロモーションを意識したものなので残すコメントは英語、でもコミットコメントやtodoコメントは日本語でOK
+o Tasksビューを活用してタスク管理するので、todo は _to を使って名前付きで
+o コードにはタグコメントを入れていく _ta...
+o developにじゃんじゃんコミットしていってOK
+
+# ----------------------------------------------------------
+#                                                 MacOSX Key
+#                                                 ----------
+<< Mac >>
+Spotlight :: alt + command + L (ランチャー)
+画面をふいー :: control + 右左
+画面をぶわー :: 四本指で上にふいっと
+なにかと設定を開く :: command + , (カンマ)
+なにかと左のタブへ :: shift + command + {
+なにかと右のタブへ :: shift + command + }
+
+# ----------------------------------------------------------
+#                                                Eclipse Key
+#                                                -----------
+<< basic: general >>
+リソースの検索 :: command + shift + R
+Preferences :: command + , (カンマ)
+
+<< basic: editor >>
+一行削除 :: command + D
+一行コピー :: alt + command + 下
+一行移動 :: alt + 下
+単語移動 :: alt + 左右
+
+<< basic: Java >>
+変数の補完 :: command + 2 => L
+リファクタリング :: alt + command + R
+
+<< Git: original key bind >>
+Fetch  :: alt + shift + U
+Pull   :: alt + shift + P
+Commit :: alt + shift + C
+Push   :: alt + shift + V
+Comp   :: alt + shift + L
+
+<< Move: original key bind >>
+パッケージエクスプローラへ :: shift + command + +
+いま開いているエディターへ :: shift + command + *
+コンソールへ            :: shift + command + _
+Git と Java を行き来する :: shift + command + @
+Gitリポジトリビューをひらく :: shift + command + >
+Tasksビュー(todo)をひらく => shift + command + ¥
+左のタブへ :: shift + command + {
+右のタブへ :: shift + command + }

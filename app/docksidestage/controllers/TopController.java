@@ -15,27 +15,42 @@
  */
 package docksidestage.controllers;
 
+import org.dbflute.optional.OptionalEntity;
 import org.springframework.transaction.annotation.Transactional;
 
-
+import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
-import views.html.index;
-
+import views.html.login;
+import views.html.mypage.mypage;
 
 import com.google.inject.Inject;
 
-
+import docksidestage.controllers.mypage.MyPageWebBean;
 import docksidestage.dbflute.exbhv.MemberBhv;
+import docksidestage.dbflute.exentity.Member;
 
 /**
  * @author jflute
+ * @author jun_0915
  */
 public class TopController extends Controller {
 
+    // ===================================================================================
+    //                                                                          Definition
+    //                                                                          ==========
+    final Form<LoginForm> form = Form.form(LoginForm.class);
+    public MyPageWebBean bean;
+
+    // -----------------------------------------------------
+    //                                          DI Component
+    //                                          ------------
     @Inject
     protected MemberBhv memberBhv;
 
+    // ===================================================================================
+    //                                                                             Execute
+    //                                                                             =======
     @Transactional
     public Result index() {
         // TODO jflute example: Play2 fitting
@@ -46,6 +61,20 @@ public class TopController extends Controller {
             member.setMemberName("seasea");
             memberBhv.update(member);
         });
-        return ok(index.render("Your new application is ready."));
+        return ok(login.render(form));
+    }
+
+    @Transactional
+    public Result doLogin() {
+        OptionalEntity<Member> member = memberBhv.selectEntity(cb -> {
+            cb.setupSelect_MemberSecurityAsOne();
+            cb.query().setMemberName_Equal("toyoda");
+            cb.query().queryMemberSecurityAsOne().setLoginPassword_Equal("pixiy");
+        });
+        if (!member.isPresent()) {
+            return this.index();
+        }
+        bean = new MyPageWebBean().initialize(member.get());
+        return ok(mypage.render(bean));
     }
 }
