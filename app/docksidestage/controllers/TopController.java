@@ -15,18 +15,18 @@
  */
 package docksidestage.controllers;
 
-import org.dbflute.optional.OptionalEntity;
-import org.springframework.transaction.annotation.Transactional;
+import javax.validation.Validation;
 
+import org.dbflute.optional.OptionalEntity;
+
+import play.data.DynamicForm;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.login;
-import views.html.mypage.mypage;
 
 import com.google.inject.Inject;
 
-import docksidestage.controllers.mypage.MyPageWebBean;
 import docksidestage.dbflute.exbhv.MemberBhv;
 import docksidestage.dbflute.exentity.Member;
 
@@ -37,10 +37,9 @@ import docksidestage.dbflute.exentity.Member;
 public class TopController extends Controller {
 
     // ===================================================================================
-    //                                                                          Definition
-    //                                                                          ==========
-    final Form<LoginForm> form = Form.form(LoginForm.class);
-    public MyPageWebBean bean;
+    //                                                                            Accessor
+    //                                                                            ========
+    private Form<LoginForm> loginForm = Form.form(LoginForm.class);
 
     // -----------------------------------------------------
     //                                          DI Component
@@ -51,30 +50,22 @@ public class TopController extends Controller {
     // ===================================================================================
     //                                                                             Execute
     //                                                                             =======
-    @Transactional
     public Result index() {
-        // TODO jflute example: Play2 fitting
-        memberBhv.selectEntity(cb -> {
-            cb.setupSelect_MemberStatus();
-            cb.acceptPK(1);
-        }).alwaysPresent(member -> {
-            member.setMemberName("seasea");
-            memberBhv.update(member);
-        });
-        return ok(login.render(form));
+        return ok(login.render(loginForm));
     }
 
-    @Transactional
     public Result doLogin() {
-        OptionalEntity<Member> member = memberBhv.selectEntity(cb -> {
-            cb.setupSelect_MemberSecurityAsOne();
-            cb.query().setMemberName_Equal("toyoda");
-            cb.query().queryMemberSecurityAsOne().setLoginPassword_Equal("pixiy");
-        });
-        if (!member.isPresent()) {
-            return this.index();
+        DynamicForm request = Form.form().bindFromRequest();
+        if (!request.hasErrors()) {
+            OptionalEntity<Member> member = memberBhv.selectEntity(cb -> {
+                cb.query().setMemberName_Equal(request.get("name"));
+                cb.query().queryMemberSecurityAsOne().setLoginPassword_Equal(request.get("password"));
+            });
+            if (member.isPresent()) {
+                return redirect("/mypage");
+            }
         }
-        bean = new MyPageWebBean().initialize(member.get());
-        return ok(mypage.render(bean));
+        // TODO jun_0915 add RedirectIndex() and improve formRequest
+        return badRequest("error");
     }
 }

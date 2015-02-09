@@ -1,19 +1,15 @@
 @import docksidestage.controllers._
-@(loginForm: Form[LoginForm])
 @import helper._
+@(loginForm: Form[LoginForm])
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-</head>
-<body>
-    <h1>Sign in</h1>
-    <form action ="http://localhost:9000/doLogin" method ="post">
-		<input type="text" name="name"></input>
-		<input type="password" name="password">
-      <button type="submit">Login</button>
-     </form>
-</body>
-</html>
+	
+	<h1>Hello!</h1>
+	@helper.form(action = docksidestage.controllers.routes.TopController.doLogin){
+		@(helper.inputText (
+			loginForm("name")
+		))
+		@(helper.inputPassword (
+			loginForm("password")
+		))
+		<input type="submit">
+	}
