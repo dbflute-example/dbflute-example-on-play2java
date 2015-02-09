@@ -17,3 +17,4 @@ dist
 #/.settings
 /bin
 .DS_Store
+/.target/

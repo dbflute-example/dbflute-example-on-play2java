@@ -18,8 +18,8 @@ libraryDependencies ++= Seq(
   "org.springframework" % "spring-aop" % "4.1.1.RELEASE"
 )
 
-// Play2 adjustments
 PlayKeys.ebeanEnabled := false
 
-// Eclipse settings
 EclipseKeys.withSource := true
+
+EclipseKeys.eclipseOutput := Some(".target")
