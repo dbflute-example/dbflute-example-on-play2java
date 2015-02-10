@@ -23,3 +23,10 @@ PlayKeys.ebeanEnabled := false
 EclipseKeys.withSource := true
 
 EclipseKeys.eclipseOutput := Some(".target")
+
+// to speed up compilation
+// ref: https://www.playframework.com/documentation/2.4.x/SBTCookbook
+sources in (Compile, doc) := Seq.empty
+
+// also to speed up compilation
+publishArtifact in (Compile, packageDoc) := false
