@@ -16,5 +16,6 @@ dist
 # committed for sharing
 #/.settings
 /bin
-.DS_Store
 /.target/
+.cache
+.DS_Store
