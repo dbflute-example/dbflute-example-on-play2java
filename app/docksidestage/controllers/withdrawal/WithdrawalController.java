@@ -21,13 +21,25 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.withdrawal.withdrawal;
 
+// TODO jflute play2: ログインチェックどうするのー？
 /**
  * @author jflute
  */
 public class WithdrawalController extends Controller {
 
-    @Transactional
+    // TODO jflute play2: 退会画面、画面表示リクエストと、退会処理リクエストを実装すべし
     public Result index() {
+        // すでに退会してたら MyPage へ飛ばす
+        // 退会理由のリストボックスを表示
+        return ok(withdrawal.render("Your new withdrawal is ready."));
+    }
+
+    @Transactional
+    public Result withdraw() {
+        // ステータスの変更
+        // 退会情報の登録
+        // 強制ログアウト
+        // 退会おめでとう画面の表示
         return ok(withdrawal.render("Your new withdrawal is ready."));
     }
 }
