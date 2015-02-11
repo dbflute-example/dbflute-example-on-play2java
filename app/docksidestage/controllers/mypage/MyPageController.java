@@ -37,7 +37,6 @@ public class MyPageController extends Controller {
     //                                                                           =========
     @Inject
     protected MemberBhv memberBhv;
-    String name = "NANASHI";
     public MyPageWebBean bean;
 
     // ===================================================================================
@@ -45,17 +44,17 @@ public class MyPageController extends Controller {
     //                                                                             =======
     @Transactional
     public Result index() {
-        String sessionId = session("memberId");
-        if (sessionId == null) {
-            return redirect("/");
-        }
-        memberBhv.selectEntity(cb -> {
+        // TODO toshiaki.arai for test environment
+        //String sessionId = session("memberId");
+        //if (sessionId == null) {
+        //    return redirect("/");
+        //}
+        MyPageWebBean bean = memberBhv.selectEntity(cb -> {
             cb.setupSelect_MemberLoginAsLatest();
-            cb.query().setMemberId_Equal(Integer.parseInt(sessionId));
-        }).ifPresent(member -> {
-            bean = new MyPageWebBean().initialize(member);
-            name = member.getMemberName();
-        });
+            cb.query().setMemberId_Equal(1);
+        }).map(member -> {
+            return new MyPageWebBean().initialize(member);
+        }).get();
 
         return ok(mypage.render(bean));
     }

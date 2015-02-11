@@ -19,3 +19,4 @@ dist
 /.target/
 .cache
 .DS_Store
+/toshi-blues.txt
