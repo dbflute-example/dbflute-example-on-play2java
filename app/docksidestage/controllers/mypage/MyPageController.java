@@ -15,28 +15,28 @@
  */
 package docksidestage.controllers.mypage;
 
-import java.util.Random;
-
 import org.springframework.transaction.annotation.Transactional;
 
-import com.google.inject.Inject;
-
-import docksidestage.dbflute.exbhv.MemberBhv;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.mypage.mypage;
 
+import com.google.inject.Inject;
+
+import docksidestage.dbflute.exbhv.MemberBhv;
+
 /**
  * @author jflute
  * @author toshiaki.arai
+ * @author jun_0915
  */
 public class MyPageController extends Controller {
-    
+
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     @Inject
-    protected MemberBhv memberBhv; 
+    protected MemberBhv memberBhv;
     String name = "NANASHI";
     public MyPageWebBean bean;
 
@@ -45,16 +45,23 @@ public class MyPageController extends Controller {
     //                                                                             =======
     @Transactional
     public Result index() {
-        // 試しに検索した名前を表示してみる
-        
+        String sessionId = session("memberId");
+        if (sessionId == null) {
+            return redirect("/");
+        }
         memberBhv.selectEntity(cb -> {
             cb.setupSelect_MemberLoginAsLatest();
-            cb.query().setMemberId_Equal(1); // seasea
+            cb.query().setMemberId_Equal(Integer.parseInt(sessionId));
         }).ifPresent(member -> {
             bean = new MyPageWebBean().initialize(member);
             name = member.getMemberName();
         });
-        
+
         return ok(mypage.render(bean));
+    }
+
+    public Result logout() {
+        session().remove("memberId");
+        return redirect("/");
     }
 }

@@ -8,6 +8,7 @@ POST    /doLogin                    @docksidestage.controllers.TopController.doL
 
 # Mypage
 GET     /mypage                     @docksidestage.controllers.mypage.MyPageController.index()
+GET     /logout                     @docksidestage.controllers.mypage.MyPageController.logout()
 
 # Withdrawal
 GET     /withdrawal                 @docksidestage.controllers.withdrawal.WithdrawalController.index()

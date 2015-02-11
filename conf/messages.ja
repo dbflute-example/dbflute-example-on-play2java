@@ -1,0 +1,11 @@
+# フォームの表示時のメッセージ
+constraint.required=必須項目
+constraint.minLength=最低文字数: {0}
+constraint.maxLength=最高文字数: {0}
+ 
+# エラーメッセージ
+error.required=必須項目です
+
+# フォームの表示名
+memberName = 名前
+password = パスワード

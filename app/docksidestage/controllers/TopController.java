@@ -15,12 +15,12 @@
  */
 package docksidestage.controllers;
 
-import javax.validation.Validation;
+import static play.data.Form.form;
 
 import org.dbflute.optional.OptionalEntity;
 
-import play.data.DynamicForm;
 import play.data.Form;
+import play.data.validation.Constraints.Required;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.login;
@@ -39,33 +39,55 @@ public class TopController extends Controller {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-    private Form<LoginForm> loginForm = Form.form(LoginForm.class);
-
     // -----------------------------------------------------
     //                                          DI Component
     //                                          ------------
     @Inject
     protected MemberBhv memberBhv;
 
+    // ====================================================================================
+    //                                                                            LoginForm
+    //                                                                            =========
+    public static class LoginForm {
+        @Required(message = "必須項目です")
+        public String memberName;
+        @Required(message = "必須項目です")
+        public String password;
+    }
+
     // ===================================================================================
     //                                                                             Execute
     //                                                                             =======
     public Result index() {
-        return ok(login.render(loginForm));
+        return ok(login.render(new Form<LoginForm>(LoginForm.class)));
     }
 
     public Result doLogin() {
-        DynamicForm request = Form.form().bindFromRequest();
+        Form<LoginForm> request = form(LoginForm.class).bindFromRequest();
         if (!request.hasErrors()) {
-            OptionalEntity<Member> member = memberBhv.selectEntity(cb -> {
-                cb.query().setMemberName_Equal(request.get("name"));
-                cb.query().queryMemberSecurityAsOne().setLoginPassword_Equal(request.get("password"));
-            });
+            OptionalEntity<Member> member = getMember(request);
             if (member.isPresent()) {
+                session("memberId", member.get().getMemberId().toString());
                 return redirect("/mypage");
+            } else {
+                return badRequest(request.errorsAsJson());
+                // TODO jun_0915 検索していなかったら、"passwordもしくはmemberNameを確かめてね"的なことを出す。
             }
         }
-        // TODO jun_0915 add RedirectIndex() and improve formRequest
-        return badRequest("error");
+        // TODO jun_0915 memberId,passwordどちらかがnull or 0なら"必須です"って出す
+        return badRequest(request.errorsAsJson());
+    }
+
+    /**
+     * 対象の会員を検索
+     * @param request (NotNull)
+     * @return member (NullAllowed)
+     */
+    private OptionalEntity<Member> getMember(Form<LoginForm> request) {
+        OptionalEntity<Member> member = memberBhv.selectEntity(cb -> {
+            cb.query().setMemberName_Equal(request.get().memberName);
+            cb.query().queryMemberSecurityAsOne().setLoginPassword_Equal(request.get().password);
+        });
+        return member;
     }
 }
