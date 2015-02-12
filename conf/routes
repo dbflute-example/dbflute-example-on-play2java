@@ -4,6 +4,7 @@
 
 # Home page
 GET     /                           @docksidestage.controllers.TopController.index()
+POST    /doSignUp                   @docksidestage.controllers.TopController.signUp()
 
 # Sign In
 GET     /signin                     @docksidestage.controllers.signin.SignInController.index()

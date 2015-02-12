@@ -24,6 +24,7 @@ import views.html.signin.signin;
 
 import com.google.inject.Inject;
 
+import docksidestage.controllers.mypage.routes;
 import docksidestage.dbflute.exbhv.MemberBhv;
 import docksidestage.dbflute.exentity.Member;
 
@@ -36,6 +37,7 @@ public class SignInController extends Controller {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
+    private Form<SignInForm> form = Form.form(SignInForm.class);
     // -----------------------------------------------------
     //                                          DI Component
     //                                          ------------
@@ -46,16 +48,16 @@ public class SignInController extends Controller {
     //                                                                             Execute
     //                                                                             =======
     public Result index() {
-        return ok(signin.render(new Form<SignInForm>(SignInForm.class)));
+        return ok(signin.render(form));
     }
 
     public Result doLogin() {
-        Form<SignInForm> request = Form.form(SignInForm.class).bindFromRequest();
+        Form<SignInForm> request = form.bindFromRequest();
         if (!request.hasErrors()) {
             OptionalEntity<Member> member = selectMember(request);
             if (member.isPresent()) {
                 session("memberId", member.get().getMemberId().toString());
-                return redirect("/mypage");
+                return redirect(routes.MyPageController.index());
             } else {
                 return badRequest(request.errorsAsJson());
                 // TODO jun_0915 検索していなかったら、"passwordもしくはmemberNameを確かめてね"的なことを出す。

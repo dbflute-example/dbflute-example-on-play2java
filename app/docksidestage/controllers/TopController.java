@@ -27,4 +27,11 @@ public class TopController extends Controller {
     public Result index() {
         return ok(index.render("Welcome to DBFlute example!"));
     }
+
+    public Result signUp() {
+        // TODO jun_0915 フォームからの値を受け取る
+        // insertを使って、DBにinsert
+        // insertできたら、mypageにリダイレクト
+        return ok(index.render("Welcome to DBFlute example!"));
+    }
 }
