@@ -1,0 +1,11 @@
+@import docksidestage.controllers.product._
+@(beans:List[ProductWebBean])
+
+
+<ul>
+	@for(product <- beans){
+		<li>@product.productName </li>
+	}
+</ul>
+
+
