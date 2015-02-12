@@ -20,3 +20,8 @@
 <a href="/logout">logout</a>
 <a href="/withdrawal">withdrawal</a>
 <a href="/profile">profile</a>
+<ul>
+	@for(purchase <- bean.purchaseList){
+	<li>@purchase</li>
+	}
+</ul>

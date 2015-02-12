@@ -15,6 +15,7 @@
  */
 package docksidestage.controllers.mypage;
 
+import org.dbflute.optional.OptionalEntity;
 import org.springframework.transaction.annotation.Transactional;
 
 import play.mvc.Controller;
@@ -24,6 +25,7 @@ import views.html.mypage.mypage;
 import com.google.inject.Inject;
 
 import docksidestage.dbflute.exbhv.MemberBhv;
+import docksidestage.dbflute.exentity.Member;
 
 /**
  * @author jflute
@@ -45,14 +47,12 @@ public class MyPageController extends Controller {
     @Transactional
     public Result index() {
         // TODO toshiaki.arai for test environment
-        //String sessionId = session("memberId");
-        //if (sessionId == null) {
-        //    return redirect("/");
-        //}
+        // login check
         MyPageWebBean bean = memberBhv.selectEntity(cb -> {
             cb.setupSelect_MemberLoginAsLatest();
             cb.query().setMemberId_Equal(1);
         }).map(member -> {
+            memberBhv.loadPurchase(member, puchaseCB -> {});
             return new MyPageWebBean().initialize(member);
         }).get();
 
