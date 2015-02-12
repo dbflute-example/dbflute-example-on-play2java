@@ -1,0 +1,15 @@
+@import docksidestage.controllers.signin._
+@import docksidestage.controllers.signin.routes
+@import helper._
+@(loginForm: Form[SignInForm])
+
+	<h1>Hello!</h1>
+	@helper.form(action = routes.SignInController.doLogin){
+		@(helper.inputText (
+			loginForm("memberName")
+		))
+		@(helper.inputPassword (
+			loginForm("password")
+		))
+		<input type="submit">
+	}
