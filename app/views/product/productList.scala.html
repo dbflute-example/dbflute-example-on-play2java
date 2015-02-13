@@ -1,6 +1,13 @@
 @import docksidestage.controllers.product._
-@(beans:List[ProductWebBean])
+@import docksidestage.controllers.product.routes
 
+@(beans:List[ProductWebBean],prdForm: Form[ProductSearchForm])
+<h1>search your favorites</h1>
+@helper.form(action = routes.ProductController.list){
+	@(helper.inputText(prdForm("fromPrice")))
+	@(helper.inputText(prdForm("toPrice")))
+	<input type="button" value="search"/>
+}
 
 <ul>
 	@for(product <- beans){

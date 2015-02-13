@@ -20,6 +20,7 @@ import java.util.List;
 
 import org.dbflute.cbean.result.ListResultBean;
 
+import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.product.productList;
@@ -34,17 +35,26 @@ import docksidestage.dbflute.exentity.Product;
  */
 public class ProductController extends Controller {
 
+    private Form<ProductSearchForm> form = Form.form(ProductSearchForm.class);
     @Inject
     private ProductBhv productBhv;
 
     public Result list() {
+        List<ProductWebBean> productBeanList = searchProducts();
+        return ok(productList.render(productBeanList, form));
+    }
+
+    private List<ProductWebBean> searchProducts() {
+        Form<ProductSearchForm> request = form.bindFromRequest();
         ListResultBean<Product> products = productBhv.selectList(cb -> {
+            cb.query().setRegularPrice_GreaterEqual(Integer.valueOf(request.get().fromPrice));
+            cb.query().setRegularPrice_LessEqual(Integer.valueOf(request.get().toPrice));
             cb.query().addOrderBy_RegisterDatetime_Desc();
         });
         List<ProductWebBean> productBeanList = new ArrayList<ProductWebBean>();
         for (Product product : products) {
             productBeanList.add(new ProductWebBean(product));
         }
-        return ok(productList.render(productBeanList));
+        return productBeanList;
     }
 }
