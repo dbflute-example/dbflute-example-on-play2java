@@ -35,20 +35,23 @@ import docksidestage.dbflute.exentity.Product;
  */
 public class ProductController extends Controller {
 
-    private Form<ProductSearchForm> form = Form.form(ProductSearchForm.class);
     @Inject
     private ProductBhv productBhv;
 
     public Result list() {
-        List<ProductWebBean> productBeanList = searchProducts();
-        return ok(productList.render(productBeanList, form));
+        Form<ProductSearchForm> request = Form.form(ProductSearchForm.class).bindFromRequest();
+        System.out.println("dfafadfaff ff" + request);
+        ProductSearchForm form = request.get();
+        System.out.println("テストですちょ" + form.getFromPrice() + "テストまただ" + form.getToPrice());
+        List<ProductWebBean> productBeanList = searchProducts(form);
+        return ok(productList.render(productBeanList, request));
     }
 
-    private List<ProductWebBean> searchProducts() {
-        Form<ProductSearchForm> request = form.bindFromRequest();
+    private List<ProductWebBean> searchProducts(ProductSearchForm form) {
         ListResultBean<Product> products = productBhv.selectList(cb -> {
-            cb.query().setRegularPrice_GreaterEqual(Integer.valueOf(request.get().fromPrice));
-            cb.query().setRegularPrice_LessEqual(Integer.valueOf(request.get().toPrice));
+            cb.ignoreNullOrEmptyQuery();
+            cb.query().setRegularPrice_GreaterEqual(form.getFromPrice());
+            cb.query().setRegularPrice_LessEqual(form.getToPrice());
             cb.query().addOrderBy_RegisterDatetime_Desc();
         });
         List<ProductWebBean> productBeanList = new ArrayList<ProductWebBean>();

@@ -6,12 +6,12 @@
 @helper.form(action = routes.ProductController.list){
 	@(helper.inputText(prdForm("fromPrice")))
 	@(helper.inputText(prdForm("toPrice")))
-	<input type="button" value="search"/>
+	<input type="submit" value="search"/>
 }
 
 <ul>
 	@for(product <- beans){
-		<li>@product.productName </li>
+		<li>@product.productName  @product.price</li>
 	}
 </ul>
 
