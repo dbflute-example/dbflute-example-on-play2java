@@ -8,8 +8,8 @@ import play.data.validation.Constraints.Required;
 public class SignInForm {
 
     // ===================================================================================
-    //                                                                            Accessor
-    //                                                                            ========
+    //                                                                           Attribute
+    //                                                                           =========
     @Required(message = "必須項目です")
     public String memberName;
     @Required(message = "必須項目です")

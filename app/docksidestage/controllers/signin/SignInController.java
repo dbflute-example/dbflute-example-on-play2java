@@ -35,9 +35,8 @@ import docksidestage.dbflute.exentity.Member;
 public class SignInController extends Controller {
 
     // ===================================================================================
-    //                                                                            Accessor
-    //                                                                            ========
-    private Form<SignInForm> form = Form.form(SignInForm.class);
+    //                                                                           Attribute
+    //                                                                           =========
     // -----------------------------------------------------
     //                                          DI Component
     //                                          ------------
@@ -48,11 +47,11 @@ public class SignInController extends Controller {
     //                                                                             Execute
     //                                                                             =======
     public Result index() {
-        return ok(signin.render(form));
+        return ok(signin.render(Form.form(SignInForm.class)));
     }
 
     public Result doLogin() {
-        Form<SignInForm> request = form.bindFromRequest();
+        Form<SignInForm> request = Form.form(SignInForm.class).bindFromRequest();
         if (!request.hasErrors()) {
             OptionalEntity<Member> member = selectMember(request);
             if (member.isPresent()) {
