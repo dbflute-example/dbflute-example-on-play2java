@@ -19,11 +19,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.dbflute.cbean.result.ListResultBean;
+import org.dbflute.optional.OptionalEntity;
 
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.product.productList;
+import views.html.product.productDisp;
 
 import com.google.inject.Inject;
 
@@ -40,11 +42,21 @@ public class ProductController extends Controller {
 
     public Result list() {
         Form<ProductSearchForm> request = Form.form(ProductSearchForm.class).bindFromRequest();
-        System.out.println("dfafadfaff ff" + request);
         ProductSearchForm form = request.get();
-        System.out.println("テストですちょ" + form.getFromPrice() + "テストまただ" + form.getToPrice());
         List<ProductWebBean> productBeanList = searchProducts(form);
         return ok(productList.render(productBeanList, request));
+    }
+
+    public Result disp(Integer prdId) {
+        OptionalEntity<Product> product = productBhv.selectEntity(cb -> {
+            cb.query().setProductId_Equal(prdId);
+        });
+        if (product.isPresent()) {
+            return ok(productDisp.render(new ProductWebBean(product.get())));
+        } else {
+            // TODO hirota :if selected product is end of sales you are sent Error screen
+            return ok(productDisp.render(new ProductWebBean(product.get())));
+        }
     }
 
     private List<ProductWebBean> searchProducts(ProductSearchForm form) {

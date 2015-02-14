@@ -26,3 +26,7 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
 # Product
 GET     /product/list               @docksidestage.controllers.product.ProductController.list()
+GET     /product/disp/:prdId        @docksidestage.controllers.product.ProductController.disp(prdId:Integer)
+
+# Purchase
+POST   /purchase                    @docksidestage.controllers.purchase.PurchaseController.purchase()

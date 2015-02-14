@@ -11,8 +11,10 @@
 
 <ul>
 	@for(product <- beans){
-		<li>@product.productName  @product.price</li>
+	<li>
+		<a href="/product/disp/@product.productId">
+			@product.productName  @product.price 円
+		</a>
+	</li>
 	}
 </ul>
-
-

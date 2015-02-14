@@ -1,6 +1,10 @@
 package docksidestage.controllers.product;
 
+/**
+ * @author perrotta
+ */
 public class ProductSearchForm {
+
     private Integer fromPrice;
     private Integer toPrice;
     private String searchWord;

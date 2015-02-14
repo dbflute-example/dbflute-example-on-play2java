@@ -2,6 +2,9 @@ package docksidestage.controllers.product;
 
 import docksidestage.dbflute.exentity.Product;
 
+/**
+ * @author perrotta
+ */
 public class ProductWebBean {
     public Integer productId;
 
