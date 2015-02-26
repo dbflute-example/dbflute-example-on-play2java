@@ -14,11 +14,14 @@ public class ProductWebBean {
 
     public Integer price;
 
+    public boolean purchasableFlg;
+
     public ProductWebBean(Product product) {
         productId = product.getProductId();
         productHandleCode = product.getProductHandleCode();
         productName = product.getProductName();
         price = product.getRegularPrice();
+        purchasableFlg = product.isProductStatusCode生産販売可能();
     }
 
 }

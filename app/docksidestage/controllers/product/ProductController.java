@@ -48,14 +48,16 @@ public class ProductController extends Controller {
     }
 
     public Result disp(Integer prdId) {
-        OptionalEntity<Product> product = productBhv.selectEntity(cb -> {
+        OptionalEntity<ProductWebBean> product = productBhv.selectEntity(cb -> {
             cb.query().setProductId_Equal(prdId);
+        }).map(prd -> {
+            return new ProductWebBean(prd);
         });
         if (product.isPresent()) {
-            return ok(productDisp.render(new ProductWebBean(product.get())));
+            return ok(productDisp.render(product.get()));
         } else {
             // TODO hirota :if selected product is end of sales you are sent Error screen
-            return ok(productDisp.render(new ProductWebBean(product.get())));
+            return ok(productDisp.render(product.get()));
         }
     }
 
@@ -67,9 +69,9 @@ public class ProductController extends Controller {
             cb.query().addOrderBy_RegisterDatetime_Desc();
         });
         List<ProductWebBean> productBeanList = new ArrayList<ProductWebBean>();
-        for (Product product : products) {
-            productBeanList.add(new ProductWebBean(product));
-        }
+        products.forEach(prd -> {
+            productBeanList.add(new ProductWebBean(prd));
+        });
         return productBeanList;
     }
 }
