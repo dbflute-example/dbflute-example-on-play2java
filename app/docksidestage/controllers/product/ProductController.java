@@ -34,20 +34,43 @@ import docksidestage.dbflute.exentity.Product;
 
 /**
  * @author perrotta
+ * @author jflute
  */
 public class ProductController extends Controller {
 
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
     @Inject
     private ProductBhv productBhv;
 
+    // ===================================================================================
+    //                                                                             Execute
+    //                                                                             =======
     public Result list() {
         Form<ProductSearchForm> request = Form.form(ProductSearchForm.class).bindFromRequest();
         ProductSearchForm form = request.get();
-        List<ProductWebBean> productBeanList = searchProducts(form);
-        return ok(productList.render(productBeanList, request));
+        List<ProductWebBean> productBeans = prepareProductBeans(form);
+        return ok(productList.render(productBeans, request));
     }
 
     public Result disp(Integer prdId) {
+        // _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+        // TODO perrotta 排他制御はフレームワークでやるので、そのままgetしちゃってOK by jflute
+        // e.g. 
+        //  ProductWebBean bean = productBhv.selectEntity(cb -> cb.acceptPK(prdId)).map(product -> {
+        //      return new ProductWebBean(product);
+        //  }).get();
+        //  return ok(productDisp.render(bean));
+        //
+        // こうもできるけど、さすがにこれは見づらいかなぁ...
+        // e.g.
+        //  return productBhv.selectEntity(cb -> cb.acceptPK(prdId)).map(product -> {
+        //      return new ProductWebBean(product);
+        //  }).map(bean -> {
+        //      return ok(productDisp.render(bean));
+        //  }).get();
+        // _/_/_/_/_/_/_/_/_/_/
         OptionalEntity<ProductWebBean> product = productBhv.selectEntity(cb -> {
             cb.query().setProductId_Equal(prdId);
         }).map(prd -> {
@@ -61,17 +84,28 @@ public class ProductController extends Controller {
         }
     }
 
-    private List<ProductWebBean> searchProducts(ProductSearchForm form) {
-        ListResultBean<Product> products = productBhv.selectList(cb -> {
-            cb.ignoreNullOrEmptyQuery();
-            cb.query().setRegularPrice_GreaterEqual(form.getFromPrice());
-            cb.query().setRegularPrice_LessEqual(form.getToPrice());
-            cb.query().addOrderBy_RegisterDatetime_Desc();
-        });
+    // ===================================================================================
+    //                                                                             Mapping
+    //                                                                             =======
+    private List<ProductWebBean> prepareProductBeans(ProductSearchForm form) {
+        // TODO perrotta こんな感じで書いてごらん by jflute
+        //return selectProducts(form).stream().map(product -> {
+        //    return new ProductWebBean(product);
+        //}).collect(Collectors.toList());
+        ListResultBean<Product> products = selectProducts(form);
         List<ProductWebBean> productBeanList = new ArrayList<ProductWebBean>();
         products.forEach(prd -> {
             productBeanList.add(new ProductWebBean(prd));
         });
         return productBeanList;
+    }
+
+    private ListResultBean<Product> selectProducts(ProductSearchForm form) {
+        return productBhv.selectList(cb -> {
+            cb.ignoreNullOrEmptyQuery();
+            cb.query().setRegularPrice_GreaterEqual(form.getFromPrice());
+            cb.query().setRegularPrice_LessEqual(form.getToPrice());
+            cb.query().addOrderBy_RegisterDatetime_Desc();
+        });
     }
 }
