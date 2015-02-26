@@ -15,6 +15,8 @@
  */
 package docksidestage.controllers.signin;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.dbflute.optional.OptionalEntity;
 
 import play.data.Form;
@@ -33,6 +35,11 @@ import docksidestage.dbflute.exentity.Member;
  * @author jun_0915
  */
 public class SignInController extends Controller {
+
+    // ===================================================================================
+    //                                                                          Definition
+    //                                                                          ==========
+    private static final Log LOG = LogFactory.getLog(SignInController.class);
 
     // ===================================================================================
     //                                                                           Attribute
@@ -57,13 +64,10 @@ public class SignInController extends Controller {
             if (member.isPresent()) {
                 session("memberId", member.get().getMemberId().toString());
                 return redirect(routes.MyPageController.index());
-            } else {
-                return badRequest(request.errorsAsJson());
-                // TODO jun_0915 検索していなかったら、"passwordもしくはmemberNameを確かめてね"的なことを出す。
             }
         }
-        // TODO jun_0915 memberId,passwordどちらかがnull or 0なら"必須です"って出す
-        return badRequest(request.errorsAsJson());
+        // TODO jun_0915 リダイレクトしつつ、validationMessageを保持してErrorMessageを出す
+        return badRequest(signin.render(request));
     }
 
     /**

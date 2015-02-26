@@ -4,12 +4,17 @@
 @(loginForm: Form[SignInForm])
 
 	<h1>Hello!</h1>
+	@if(loginForm.hasGlobalErrors) {
+    	<p class="error">
+        	@loginForm.globalError.message
+    	</p>
+    }
 	@helper.form(action = routes.SignInController.doLogin){
 		@(helper.inputText (
-			loginForm("memberName")
+			loginForm("memberName"),'_memberName->"",'_help->""
 		))
 		@(helper.inputPassword (
-			loginForm("password")
+			loginForm("password"),'_password->"",'_help->""
 		))
 		<input type="submit">
 	}
