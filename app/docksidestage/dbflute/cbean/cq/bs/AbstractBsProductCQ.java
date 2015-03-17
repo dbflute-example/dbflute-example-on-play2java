@@ -538,27 +538,27 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Equal(=). As 生産販売可能 (ONS). And OnlyOnceRegistered. <br>
-     * 生産販売可能
+     * Equal(=). As OnSaleProduction (ONS). And OnlyOnceRegistered. <br>
+     * OnSaleProduction
      */
-    public void setProductStatusCode_Equal_生産販売可能() {
-        setProductStatusCode_Equal_AsProductStatus(CDef.ProductStatus.生産販売可能);
+    public void setProductStatusCode_Equal_OnSaleProduction() {
+        setProductStatusCode_Equal_AsProductStatus(CDef.ProductStatus.OnSaleProduction);
     }
 
     /**
-     * Equal(=). As 生産中止 (PST). And OnlyOnceRegistered. <br>
-     * 生産中止
+     * Equal(=). As ProductionStop (PST). And OnlyOnceRegistered. <br>
+     * ProductionStop
      */
-    public void setProductStatusCode_Equal_生産中止() {
-        setProductStatusCode_Equal_AsProductStatus(CDef.ProductStatus.生産中止);
+    public void setProductStatusCode_Equal_ProductionStop() {
+        setProductStatusCode_Equal_AsProductStatus(CDef.ProductStatus.ProductionStop);
     }
 
     /**
-     * Equal(=). As 販売中止 (SST). And OnlyOnceRegistered. <br>
-     * 販売中止
+     * Equal(=). As SaleStop (SST). And OnlyOnceRegistered. <br>
+     * SaleStop
      */
-    public void setProductStatusCode_Equal_販売中止() {
-        setProductStatusCode_Equal_AsProductStatus(CDef.ProductStatus.販売中止);
+    public void setProductStatusCode_Equal_SaleStop() {
+        setProductStatusCode_Equal_AsProductStatus(CDef.ProductStatus.SaleStop);
     }
 
     protected void doSetProductStatusCode_Equal(String productStatusCode) {
@@ -585,27 +585,27 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). As 生産販売可能 (ONS). And OnlyOnceRegistered. <br>
-     * 生産販売可能
+     * NotEqual(&lt;&gt;). As OnSaleProduction (ONS). And OnlyOnceRegistered. <br>
+     * OnSaleProduction
      */
-    public void setProductStatusCode_NotEqual_生産販売可能() {
-        setProductStatusCode_NotEqual_AsProductStatus(CDef.ProductStatus.生産販売可能);
+    public void setProductStatusCode_NotEqual_OnSaleProduction() {
+        setProductStatusCode_NotEqual_AsProductStatus(CDef.ProductStatus.OnSaleProduction);
     }
 
     /**
-     * NotEqual(&lt;&gt;). As 生産中止 (PST). And OnlyOnceRegistered. <br>
-     * 生産中止
+     * NotEqual(&lt;&gt;). As ProductionStop (PST). And OnlyOnceRegistered. <br>
+     * ProductionStop
      */
-    public void setProductStatusCode_NotEqual_生産中止() {
-        setProductStatusCode_NotEqual_AsProductStatus(CDef.ProductStatus.生産中止);
+    public void setProductStatusCode_NotEqual_ProductionStop() {
+        setProductStatusCode_NotEqual_AsProductStatus(CDef.ProductStatus.ProductionStop);
     }
 
     /**
-     * NotEqual(&lt;&gt;). As 販売中止 (SST). And OnlyOnceRegistered. <br>
-     * 販売中止
+     * NotEqual(&lt;&gt;). As SaleStop (SST). And OnlyOnceRegistered. <br>
+     * SaleStop
      */
-    public void setProductStatusCode_NotEqual_販売中止() {
-        setProductStatusCode_NotEqual_AsProductStatus(CDef.ProductStatus.販売中止);
+    public void setProductStatusCode_NotEqual_SaleStop() {
+        setProductStatusCode_NotEqual_AsProductStatus(CDef.ProductStatus.SaleStop);
     }
 
     protected void doSetProductStatusCode_NotEqual(String productStatusCode) {

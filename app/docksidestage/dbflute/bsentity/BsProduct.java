@@ -193,63 +193,63 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
     //                                                              Classification Setting
     //                                                              ======================
     /**
-     * Set the value of productStatusCode as 生産販売可能 (ONS). <br>
-     * 生産販売可能
+     * Set the value of productStatusCode as OnSaleProduction (ONS). <br>
+     * OnSaleProduction
      */
-    public void setProductStatusCode_生産販売可能() {
-        setProductStatusCodeAsProductStatus(CDef.ProductStatus.生産販売可能);
+    public void setProductStatusCode_OnSaleProduction() {
+        setProductStatusCodeAsProductStatus(CDef.ProductStatus.OnSaleProduction);
     }
 
     /**
-     * Set the value of productStatusCode as 生産中止 (PST). <br>
-     * 生産中止
+     * Set the value of productStatusCode as ProductionStop (PST). <br>
+     * ProductionStop
      */
-    public void setProductStatusCode_生産中止() {
-        setProductStatusCodeAsProductStatus(CDef.ProductStatus.生産中止);
+    public void setProductStatusCode_ProductionStop() {
+        setProductStatusCodeAsProductStatus(CDef.ProductStatus.ProductionStop);
     }
 
     /**
-     * Set the value of productStatusCode as 販売中止 (SST). <br>
-     * 販売中止
+     * Set the value of productStatusCode as SaleStop (SST). <br>
+     * SaleStop
      */
-    public void setProductStatusCode_販売中止() {
-        setProductStatusCodeAsProductStatus(CDef.ProductStatus.販売中止);
+    public void setProductStatusCode_SaleStop() {
+        setProductStatusCodeAsProductStatus(CDef.ProductStatus.SaleStop);
     }
 
     // ===================================================================================
     //                                                        Classification Determination
     //                                                        ============================
     /**
-     * Is the value of productStatusCode 生産販売可能? <br>
-     * 生産販売可能
+     * Is the value of productStatusCode OnSaleProduction? <br>
+     * OnSaleProduction
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
      */
-    public boolean isProductStatusCode生産販売可能() {
+    public boolean isProductStatusCodeOnSaleProduction() {
         CDef.ProductStatus cdef = getProductStatusCodeAsProductStatus();
-        return cdef != null ? cdef.equals(CDef.ProductStatus.生産販売可能) : false;
+        return cdef != null ? cdef.equals(CDef.ProductStatus.OnSaleProduction) : false;
     }
 
     /**
-     * Is the value of productStatusCode 生産中止? <br>
-     * 生産中止
+     * Is the value of productStatusCode ProductionStop? <br>
+     * ProductionStop
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
      */
-    public boolean isProductStatusCode生産中止() {
+    public boolean isProductStatusCodeProductionStop() {
         CDef.ProductStatus cdef = getProductStatusCodeAsProductStatus();
-        return cdef != null ? cdef.equals(CDef.ProductStatus.生産中止) : false;
+        return cdef != null ? cdef.equals(CDef.ProductStatus.ProductionStop) : false;
     }
 
     /**
-     * Is the value of productStatusCode 販売中止? <br>
-     * 販売中止
+     * Is the value of productStatusCode SaleStop? <br>
+     * SaleStop
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
      */
-    public boolean isProductStatusCode販売中止() {
+    public boolean isProductStatusCodeSaleStop() {
         CDef.ProductStatus cdef = getProductStatusCodeAsProductStatus();
-        return cdef != null ? cdef.equals(CDef.ProductStatus.販売中止) : false;
+        return cdef != null ? cdef.equals(CDef.ProductStatus.SaleStop) : false;
     }
 
     // ===================================================================================
