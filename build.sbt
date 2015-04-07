@@ -11,15 +11,22 @@ libraryDependencies ++= Seq(
   javaEbean,
   cache,
   javaWs,
-  "org.dbflute" % "dbflute-runtime" % "1.1.0-sp1",
+  "org.dbflute" % "dbflute-runtime" % "1.1.0-sp2-00-SNAPSHOT",
   "mysql" % "mysql-connector-java" % "5.1.33",
   "com.google.inject" % "guice" % "3.0",
   "org.springframework" % "spring-jdbc" % "4.1.1.RELEASE",
   "org.springframework" % "spring-aop" % "4.1.1.RELEASE"
 )
 
-// Play2 adjustments
 PlayKeys.ebeanEnabled := false
 
-// Eclipse settings
 EclipseKeys.withSource := true
+
+EclipseKeys.eclipseOutput := Some(".target")
+
+// to speed up compilation
+// ref: https://www.playframework.com/documentation/2.4.x/SBTCookbook
+sources in (Compile, doc) := Seq.empty
+
+// also to speed up compilation
+publishArtifact in (Compile, packageDoc) := false

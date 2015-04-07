@@ -1,0 +1,20 @@
+@import docksidestage.controllers.signin._
+@import docksidestage.controllers.signin.routes
+@import helper._
+@(loginForm: Form[SignInForm])
+
+	<h1>Hello!</h1>
+	@if(loginForm.hasGlobalErrors) {
+    	<p class="error">
+        	@loginForm.globalError.message
+    	</p>
+    }
+	@helper.form(action = routes.SignInController.doLogin){
+		@(helper.inputText (
+			loginForm("memberName"),'_memberName->"",'_help->""
+		))
+		@(helper.inputPassword (
+			loginForm("password"),'_password->"",'_help->""
+		))
+		<input type="submit">
+	}

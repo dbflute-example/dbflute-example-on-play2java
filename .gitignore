@@ -16,4 +16,7 @@ dist
 # committed for sharing
 #/.settings
 /bin
+/.target/
+.cache
 .DS_Store
+/toshi-blues.txt

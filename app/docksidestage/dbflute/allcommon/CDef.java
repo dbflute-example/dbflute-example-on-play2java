@@ -49,14 +49,14 @@ public interface CDef extends Classification {
         static {
             for (Flg value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private Flg(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.Flg; }
 
@@ -122,14 +122,14 @@ public interface CDef extends Classification {
         static {
             for (MemberStatus value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private MemberStatus(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.MemberStatus; }
 
@@ -245,14 +245,14 @@ public interface CDef extends Classification {
         static {
             for (ServiceRank value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private ServiceRank(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.ServiceRank; }
 
@@ -321,14 +321,14 @@ public interface CDef extends Classification {
         static {
             for (Region value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private Region(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.Region; }
 
@@ -381,30 +381,30 @@ public interface CDef extends Classification {
      * 会員の退会理由。なのでちょっとねがてぃぶ
      */
     public enum WithdrawalReason implements CDef {
-        /** SIT: サイトが使いにくいから */
+        /** SIT: site is not kindness */
         Sit("SIT", "SIT", EMPTY_SISTERS)
         ,
-        /** PRD: 商品に魅力がないから */
+        /** PRD: no attractive product */
         Prd("PRD", "PRD", EMPTY_SISTERS)
         ,
-        /** FRT: フリテンだから */
+        /** FRT: because of furiten */
         Frt("FRT", "FRT", EMPTY_SISTERS)
         ,
-        /** OTH: その他理由 */
+        /** OTH: other reasons */
         Oth("OTH", "OTH", EMPTY_SISTERS)
         ;
         private static final Map<String, WithdrawalReason> _codeValueMap = new HashMap<String, WithdrawalReason>();
         static {
             for (WithdrawalReason value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private WithdrawalReason(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.WithdrawalReason; }
 
@@ -457,33 +457,33 @@ public interface CDef extends Classification {
      * 商品のカテゴリ。階層構造である
      */
     public enum ProductCategory implements CDef {
-        /** 音楽 */
-        音楽("MSC", "音楽", EMPTY_SISTERS)
+        /** Music */
+        Music("MSC", "Music", EMPTY_SISTERS)
         ,
-        /** 食品 */
-        食品("FOD", "食品", EMPTY_SISTERS)
+        /** Food */
+        Food("FOD", "Food", EMPTY_SISTERS)
         ,
-        /** ハーブ: of 食品 */
-        ハーブ("HEB", "ハーブ", EMPTY_SISTERS)
+        /** Herb: of Food */
+        Herb("HEB", "Herb", EMPTY_SISTERS)
         ,
-        /** 音楽CD: of 音楽 */
-        音楽cd("MCD", "音楽CD", EMPTY_SISTERS)
+        /** MusicCD: of Music */
+        MusicCD("MCD", "MusicCD", EMPTY_SISTERS)
         ,
-        /** 楽器: of 音楽 */
-        楽器("INS", "楽器", EMPTY_SISTERS)
+        /** Instruments: of Music */
+        Instruments("INS", "Instruments", EMPTY_SISTERS)
         ;
         private static final Map<String, ProductCategory> _codeValueMap = new HashMap<String, ProductCategory>();
         static {
             for (ProductCategory value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private ProductCategory(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.ProductCategory; }
 
@@ -536,27 +536,27 @@ public interface CDef extends Classification {
      * 商品ステータス。あんまり面白みのないステータス
      */
     public enum ProductStatus implements CDef {
-        /** 生産販売可能 */
-        生産販売可能("ONS", "生産販売可能", EMPTY_SISTERS)
+        /** OnSaleProduction */
+        OnSaleProduction("ONS", "OnSaleProduction", EMPTY_SISTERS)
         ,
-        /** 生産中止 */
-        生産中止("PST", "生産中止", EMPTY_SISTERS)
+        /** ProductionStop */
+        ProductionStop("PST", "ProductionStop", EMPTY_SISTERS)
         ,
-        /** 販売中止 */
-        販売中止("SST", "販売中止", EMPTY_SISTERS)
+        /** SaleStop */
+        SaleStop("SST", "SaleStop", EMPTY_SISTERS)
         ;
         private static final Map<String, ProductStatus> _codeValueMap = new HashMap<String, ProductStatus>();
         static {
             for (ProductStatus value : values()) {
                 _codeValueMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisters()) { _codeValueMap.put(sister.toLowerCase(), value); }
+                for (String sister : value.sisterSet()) { _codeValueMap.put(sister.toLowerCase(), value); }
             }
         }
-        private String _code; private String _alias; private String[] _sisters;
+        private String _code; private String _alias; private Set<String> _sisterSet;
         private ProductStatus(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisters = sisters; }
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
-        private String[] sisters() { return _sisters; }
+        public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return EMPTY_SUB_ITEM_MAP; }
         public ClassificationMeta meta() { return CDef.DefMeta.ProductStatus; }
 

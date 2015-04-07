@@ -15,29 +15,30 @@
  */
 package docksidestage.controllers.mypage;
 
-import java.util.Random;
-
+import org.dbflute.optional.OptionalEntity;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.google.inject.Inject;
-
-import docksidestage.dbflute.exbhv.MemberBhv;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.mypage.mypage;
 
+import com.google.inject.Inject;
+
+import docksidestage.dbflute.exbhv.MemberBhv;
+import docksidestage.dbflute.exentity.Member;
+
 /**
  * @author jflute
  * @author toshiaki.arai
+ * @author jun_0915
  */
 public class MyPageController extends Controller {
-    
+
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     @Inject
-    protected MemberBhv memberBhv; 
-    String name = "NANASHI";
+    protected MemberBhv memberBhv;
     public MyPageWebBean bean;
 
     // ===================================================================================
@@ -45,16 +46,21 @@ public class MyPageController extends Controller {
     //                                                                             =======
     @Transactional
     public Result index() {
-        // 試しに検索した名前を表示してみる
-        
-        memberBhv.selectEntity(cb -> {
+        // TODO toshiaki.arai for test environment
+        // login check
+        MyPageWebBean bean = memberBhv.selectEntity(cb -> {
             cb.setupSelect_MemberLoginAsLatest();
-            cb.query().setMemberId_Equal(1); // seasea
-        }).ifPresent(member -> {
-            bean = new MyPageWebBean().initialize(member);
-            name = member.getMemberName();
-        });
-        
+            cb.query().setMemberId_Equal(1);
+        }).map(member -> {
+            memberBhv.loadPurchase(member, puchaseCB -> {});
+            return new MyPageWebBean().initialize(member);
+        }).get();
+
         return ok(mypage.render(bean));
+    }
+
+    public Result logout() {
+        session().remove("memberId");
+        return redirect("/");
     }
 }

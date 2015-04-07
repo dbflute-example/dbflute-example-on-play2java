@@ -1,2 +1,34 @@
+@import docksidestage.controllers.profile._
+@(bean: ProfileWebBean)
+
 <h1>Profile</h1>
-<a href="/mypage">mypage</a>
+<ul>
+  <li><a href="/mypage">mypage</a></li>
+  <li><a href="/profile/edit">edit</a></li>
+</ul>
+<table>
+	<tr>
+		<th>NAME</th>
+		<td>@bean.memberId</td>
+	</tr>
+	<tr>
+		<th>ACCOUNT</th>
+		<td>@bean.memberAccount</td>
+	</tr>
+	<tr>
+		<th>BIRTHDATE</th>
+		<td>@bean.birthdate</td>
+	</tr>
+	<tr>
+		<th>ADDRESS</th>
+		<td>@bean.memberAddress</td>
+	</tr>
+	<tr>
+		<th></th>
+		<td></td>
+	</tr>
+</table>
+
+
+
+

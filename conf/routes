@@ -4,19 +4,29 @@
 
 # Home page
 GET     /                           @docksidestage.controllers.TopController.index()
+POST    /doSignUp                   @docksidestage.controllers.TopController.signUp()
+
+# Sign In
+GET     /signin                     @docksidestage.controllers.signin.SignInController.index()
+POST    /doLogin                    @docksidestage.controllers.signin.SignInController.doLogin()
 
 # Mypage
 GET     /mypage                     @docksidestage.controllers.mypage.MyPageController.index()
+GET     /logout                     @docksidestage.controllers.mypage.MyPageController.logout()
 
 # Withdrawal
 GET     /withdrawal                 @docksidestage.controllers.withdrawal.WithdrawalController.index()
 
 # Setting
 GET     /profile                    @docksidestage.controllers.profile.ProfileController.index()
+GET     /profile/edit               @docksidestage.controllers.profile.ProfileController.edit()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
-# Login
-GET     /                           @docksidestage.controllers.TopController.index()
-POST    /doLogin                    @docksidestage.controllers.TopController.doLogin()
+# Product
+GET     /product/list               @docksidestage.controllers.product.ProductController.list()
+GET     /product/disp/:prdId        @docksidestage.controllers.product.ProductController.disp(prdId:Integer)
+
+# Purchase
+POST   /purchase                    @docksidestage.controllers.purchase.PurchaseController.purchase()

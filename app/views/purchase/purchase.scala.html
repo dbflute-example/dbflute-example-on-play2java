@@ -1,0 +1,10 @@
+@import docksidestage.controllers.purchase._
+@import docksidestage.controllers.product._
+@import docksidestage.controllers.purchase.routes
+
+@(bean:ProductWebBean)
+<h1>Purchase</h1>
+<h2>Choose your payment method</h2>
+
+product :@bean.productName<br/>
+price   :@bean.price

@@ -15,66 +15,23 @@
  */
 package docksidestage.controllers;
 
-import org.dbflute.optional.OptionalEntity;
-import org.springframework.transaction.annotation.Transactional;
-
-import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
-import views.html.login;
-import views.html.mypage.mypage;
-
-import com.google.inject.Inject;
-
-import docksidestage.controllers.mypage.MyPageWebBean;
-import docksidestage.dbflute.exbhv.MemberBhv;
-import docksidestage.dbflute.exentity.Member;
+import views.html.index;
 
 /**
- * @author jflute
  * @author jun_0915
  */
 public class TopController extends Controller {
 
-    // ===================================================================================
-    //                                                                          Definition
-    //                                                                          ==========
-    final Form<LoginForm> form = Form.form(LoginForm.class);
-    public MyPageWebBean bean;
-
-    // -----------------------------------------------------
-    //                                          DI Component
-    //                                          ------------
-    @Inject
-    protected MemberBhv memberBhv;
-
-    // ===================================================================================
-    //                                                                             Execute
-    //                                                                             =======
-    @Transactional
     public Result index() {
-        // TODO jflute example: Play2 fitting
-        memberBhv.selectEntity(cb -> {
-            cb.setupSelect_MemberStatus();
-            cb.acceptPK(1);
-        }).alwaysPresent(member -> {
-            member.setMemberName("seasea");
-            memberBhv.update(member);
-        });
-        return ok(login.render(form));
+        return ok(index.render("Welcome to DBFlute example!"));
     }
 
-    @Transactional
-    public Result doLogin() {
-        OptionalEntity<Member> member = memberBhv.selectEntity(cb -> {
-            cb.setupSelect_MemberSecurityAsOne();
-            cb.query().setMemberName_Equal("toyoda");
-            cb.query().queryMemberSecurityAsOne().setLoginPassword_Equal("pixiy");
-        });
-        if (!member.isPresent()) {
-            return this.index();
-        }
-        bean = new MyPageWebBean().initialize(member.get());
-        return ok(mypage.render(bean));
+    public Result signUp() {
+        // TODO jun_0915 フォームからの値を受け取る
+        // insertを使って、DBにinsert
+        // insertできたら、mypageにリダイレクト
+        return ok(index.render("Welcome to DBFlute example!"));
     }
 }

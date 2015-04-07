@@ -1,0 +1,13 @@
+@import docksidestage.controllers.product._
+@import docksidestage.controllers.purchase.routes
+
+@(bean:ProductWebBean)
+<h1>@bean.productName</h1>
+code  :@bean.productHandleCode<br/>
+price :@bean.price
+
+@helper.form(action = routes.PurchaseController.purchase){
+<input type="hidden" name="productId" value="@bean.productId"/>
+<input type="submit" value="purchase"/>
+}
+
