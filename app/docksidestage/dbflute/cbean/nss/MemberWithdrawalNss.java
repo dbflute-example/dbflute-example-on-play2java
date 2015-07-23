@@ -35,7 +35,7 @@ public class MemberWithdrawalNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * (会員)member by my MEMBER_ID, named 'member'.
+     * (会員)MEMBER by my MEMBER_ID, named 'member'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberNss withMember() {
@@ -44,7 +44,7 @@ public class MemberWithdrawalNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (退会理由)withdrawal_reason by my WITHDRAWAL_REASON_CODE, named 'withdrawalReason'.
+     * (退会理由)WITHDRAWAL_REASON by my WITHDRAWAL_REASON_CODE, named 'withdrawalReason'.
      */
     public void withWithdrawalReason() {
         _query.xdoNss(() -> _query.queryWithdrawalReason());

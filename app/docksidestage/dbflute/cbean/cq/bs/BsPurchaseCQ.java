@@ -396,7 +396,7 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * (会員)member by my MEMBER_ID, named 'member'.
+     * (会員)MEMBER by my MEMBER_ID, named 'member'.
      * @return The instance of condition-query. (NotNull)
      */
     public MemberCQ queryMember() {
@@ -416,7 +416,7 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (商品)product by my PRODUCT_ID, named 'product'.
+     * (商品)PRODUCT by my PRODUCT_ID, named 'product'.
      * @return The instance of condition-query. (NotNull)
      */
     public ProductCQ queryProduct() {

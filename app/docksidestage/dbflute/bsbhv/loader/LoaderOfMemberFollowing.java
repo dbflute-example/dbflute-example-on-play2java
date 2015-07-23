@@ -40,7 +40,7 @@ import docksidestage.dbflute.exentity.*;
  *     
  *
  * [foreign table]
- *     member
+ *     MEMBER
  *
  * [referrer table]
  *     

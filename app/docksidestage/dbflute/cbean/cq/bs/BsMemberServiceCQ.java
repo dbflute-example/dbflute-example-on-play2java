@@ -322,7 +322,7 @@ public class BsMemberServiceCQ extends AbstractBsMemberServiceCQ {
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * (会員)member by my MEMBER_ID, named 'member'.
+     * (会員)MEMBER by my MEMBER_ID, named 'member'.
      * @return The instance of condition-query. (NotNull)
      */
     public MemberCQ queryMember() {
@@ -342,7 +342,7 @@ public class BsMemberServiceCQ extends AbstractBsMemberServiceCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (サービスランク)service_rank by my SERVICE_RANK_CODE, named 'serviceRank'.
+     * (サービスランク)SERVICE_RANK by my SERVICE_RANK_CODE, named 'serviceRank'.
      * @return The instance of condition-query. (NotNull)
      */
     public ServiceRankCQ queryServiceRank() {

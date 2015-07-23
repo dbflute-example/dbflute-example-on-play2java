@@ -53,10 +53,10 @@ import docksidestage.dbflute.cbean.*;
  *     VERSION_NO
  *
  * [foreign table]
- *     product_category, product_status
+ *     PRODUCT_CATEGORY, PRODUCT_STATUS
  *
  * [referrer table]
- *     purchase
+ *     PURCHASE
  *
  * [foreign property]
  *     productCategory, productStatus
@@ -401,7 +401,7 @@ public abstract class BsProductBhv extends AbstractBehaviorWritable<Product, Pro
 
     /**
      * Load referrer of purchaseList by the set-upper of referrer. <br>
-     * (購入)purchase by PRODUCT_ID, named 'purchaseList'.
+     * (購入)PURCHASE by PRODUCT_ID, named 'purchaseList'.
      * <pre>
      * <span style="color: #0000C0">productBhv</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">productList</span>, <span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">purchaseCB</span>.setupSelect...
@@ -432,7 +432,7 @@ public abstract class BsProductBhv extends AbstractBehaviorWritable<Product, Pro
 
     /**
      * Load referrer of purchaseList by the set-upper of referrer. <br>
-     * (購入)purchase by PRODUCT_ID, named 'purchaseList'.
+     * (購入)PURCHASE by PRODUCT_ID, named 'purchaseList'.
      * <pre>
      * <span style="color: #0000C0">productBhv</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">product</span>, <span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">purchaseCB</span>.setupSelect...

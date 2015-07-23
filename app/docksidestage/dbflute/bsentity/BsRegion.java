@@ -49,7 +49,7 @@ import docksidestage.dbflute.exentity.*;
  *     
  * 
  * [referrer table]
- *     member_address
+ *     MEMBER_ADDRESS
  * 
  * [foreign property]
  *     
@@ -218,11 +218,11 @@ public abstract class BsRegion extends AbstractEntity implements DomainEntity {
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** (会員住所情報)member_address by REGION_ID, named 'memberAddressList'. */
+    /** (会員住所情報)MEMBER_ADDRESS by REGION_ID, named 'memberAddressList'. */
     protected List<MemberAddress> _memberAddressList;
 
     /**
-     * [get] (会員住所情報)member_address by REGION_ID, named 'memberAddressList'.
+     * [get] (会員住所情報)MEMBER_ADDRESS by REGION_ID, named 'memberAddressList'.
      * @return The entity list of referrer property 'memberAddressList'. (NotNull: even if no loading, returns empty list)
      */
     public List<MemberAddress> getMemberAddressList() {
@@ -231,7 +231,7 @@ public abstract class BsRegion extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] (会員住所情報)member_address by REGION_ID, named 'memberAddressList'.
+     * [set] (会員住所情報)MEMBER_ADDRESS by REGION_ID, named 'memberAddressList'.
      * @param memberAddressList The entity list of referrer property 'memberAddressList'. (NullAllowed)
      */
     public void setMemberAddressList(List<MemberAddress> memberAddressList) {

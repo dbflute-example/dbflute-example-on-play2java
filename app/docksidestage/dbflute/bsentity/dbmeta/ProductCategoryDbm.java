@@ -144,7 +144,7 @@ public class ProductCategoryDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * (商品カテゴリ)product_category by my PARENT_CATEGORY_CODE, named 'productCategorySelf'.
+     * (商品カテゴリ)PRODUCT_CATEGORY by my PARENT_CATEGORY_CODE, named 'productCategorySelf'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignProductCategorySelf() {
@@ -156,7 +156,7 @@ public class ProductCategoryDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * (商品)product by PRODUCT_CATEGORY_CODE, named 'productList'.
+     * (商品)PRODUCT by PRODUCT_CATEGORY_CODE, named 'productList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerProductList() {
@@ -164,7 +164,7 @@ public class ProductCategoryDbm extends AbstractDBMeta {
         return cri("FK_PRODUCT_PRODUCT_CATEGORY", "productList", this, ProductDbm.getInstance(), mp, false, "productCategory");
     }
     /**
-     * (商品カテゴリ)product_category by PARENT_CATEGORY_CODE, named 'productCategorySelfList'.
+     * (商品カテゴリ)PRODUCT_CATEGORY by PARENT_CATEGORY_CODE, named 'productCategorySelfList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerProductCategorySelfList() {

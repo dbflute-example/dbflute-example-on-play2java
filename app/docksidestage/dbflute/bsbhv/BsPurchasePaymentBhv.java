@@ -53,7 +53,7 @@ import docksidestage.dbflute.cbean.*;
  *     
  *
  * [foreign table]
- *     purchase
+ *     PURCHASE
  *
  * [referrer table]
  *     

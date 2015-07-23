@@ -135,7 +135,7 @@ public class RegionDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * (会員住所情報)member_address by REGION_ID, named 'memberAddressList'.
+     * (会員住所情報)MEMBER_ADDRESS by REGION_ID, named 'memberAddressList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerMemberAddressList() {

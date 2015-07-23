@@ -180,7 +180,7 @@ public class ServiceRankDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * (会員サービス)member_service by SERVICE_RANK_CODE, named 'memberServiceList'.
+     * (会員サービス)MEMBER_SERVICE by SERVICE_RANK_CODE, named 'memberServiceList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerMemberServiceList() {

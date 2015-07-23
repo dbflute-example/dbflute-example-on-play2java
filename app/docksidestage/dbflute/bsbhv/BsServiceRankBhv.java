@@ -57,7 +57,7 @@ import docksidestage.dbflute.cbean.*;
  *     
  *
  * [referrer table]
- *     member_service
+ *     MEMBER_SERVICE
  *
  * [foreign property]
  *     
@@ -402,7 +402,7 @@ public abstract class BsServiceRankBhv extends AbstractBehaviorWritable<ServiceR
 
     /**
      * Load referrer of memberServiceList by the set-upper of referrer. <br>
-     * (会員サービス)member_service by SERVICE_RANK_CODE, named 'memberServiceList'.
+     * (会員サービス)MEMBER_SERVICE by SERVICE_RANK_CODE, named 'memberServiceList'.
      * <pre>
      * <span style="color: #0000C0">serviceRankBhv</span>.<span style="color: #CC4747">loadMemberService</span>(<span style="color: #553000">serviceRankList</span>, <span style="color: #553000">serviceCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">serviceCB</span>.setupSelect...
@@ -433,7 +433,7 @@ public abstract class BsServiceRankBhv extends AbstractBehaviorWritable<ServiceR
 
     /**
      * Load referrer of memberServiceList by the set-upper of referrer. <br>
-     * (会員サービス)member_service by SERVICE_RANK_CODE, named 'memberServiceList'.
+     * (会員サービス)MEMBER_SERVICE by SERVICE_RANK_CODE, named 'memberServiceList'.
      * <pre>
      * <span style="color: #0000C0">serviceRankBhv</span>.<span style="color: #CC4747">loadMemberService</span>(<span style="color: #553000">serviceRank</span>, <span style="color: #553000">serviceCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">serviceCB</span>.setupSelect...

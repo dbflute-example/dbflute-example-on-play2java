@@ -222,7 +222,7 @@ public class BsMemberFollowingCQ extends AbstractBsMemberFollowingCQ {
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * (会員)member by my MY_MEMBER_ID, named 'memberByMyMemberId'.
+     * (会員)MEMBER by my MY_MEMBER_ID, named 'memberByMyMemberId'.
      * @return The instance of condition-query. (NotNull)
      */
     public MemberCQ queryMemberByMyMemberId() {
@@ -242,7 +242,7 @@ public class BsMemberFollowingCQ extends AbstractBsMemberFollowingCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (会員)member by my YOUR_MEMBER_ID, named 'memberByYourMemberId'.
+     * (会員)MEMBER by my YOUR_MEMBER_ID, named 'memberByYourMemberId'.
      * @return The instance of condition-query. (NotNull)
      */
     public MemberCQ queryMemberByYourMemberId() {

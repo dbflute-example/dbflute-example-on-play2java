@@ -163,7 +163,7 @@ public class MemberFollowingDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * (会員)member by my MY_MEMBER_ID, named 'memberByMyMemberId'.
+     * (会員)MEMBER by my MY_MEMBER_ID, named 'memberByMyMemberId'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignMemberByMyMemberId() {
@@ -171,7 +171,7 @@ public class MemberFollowingDbm extends AbstractDBMeta {
         return cfi("FK_MEMBER_FOLLOWING_MY_MEMBER", "memberByMyMemberId", this, MemberDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "memberFollowingByMyMemberIdList", false);
     }
     /**
-     * (会員)member by my YOUR_MEMBER_ID, named 'memberByYourMemberId'.
+     * (会員)MEMBER by my YOUR_MEMBER_ID, named 'memberByYourMemberId'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignMemberByYourMemberId() {
