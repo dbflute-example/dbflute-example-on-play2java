@@ -35,7 +35,7 @@ public class PurchaseNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * (会員)member by my MEMBER_ID, named 'member'.
+     * (会員)MEMBER by my MEMBER_ID, named 'member'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberNss withMember() {
@@ -44,7 +44,7 @@ public class PurchaseNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (商品)product by my PRODUCT_ID, named 'product'.
+     * (商品)PRODUCT by my PRODUCT_ID, named 'product'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public ProductNss withProduct() {

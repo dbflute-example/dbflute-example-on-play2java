@@ -362,7 +362,7 @@ public class BsMemberAddressCQ extends AbstractBsMemberAddressCQ {
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * (会員)member by my MEMBER_ID, named 'member'.
+     * (会員)MEMBER by my MEMBER_ID, named 'member'.
      * @return The instance of condition-query. (NotNull)
      */
     public MemberCQ queryMember() {
@@ -382,7 +382,7 @@ public class BsMemberAddressCQ extends AbstractBsMemberAddressCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (地域)region by my REGION_ID, named 'region'.
+     * (地域)REGION by my REGION_ID, named 'region'.
      * @return The instance of condition-query. (NotNull)
      */
     public RegionCQ queryRegion() {

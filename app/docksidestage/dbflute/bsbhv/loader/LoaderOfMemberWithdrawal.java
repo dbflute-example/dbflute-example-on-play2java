@@ -40,7 +40,7 @@ import docksidestage.dbflute.exentity.*;
  *     
  *
  * [foreign table]
- *     member, withdrawal_reason
+ *     MEMBER, WITHDRAWAL_REASON
  *
  * [referrer table]
  *     

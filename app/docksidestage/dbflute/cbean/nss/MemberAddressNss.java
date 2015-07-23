@@ -35,7 +35,7 @@ public class MemberAddressNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * (会員)member by my MEMBER_ID, named 'member'.
+     * (会員)MEMBER by my MEMBER_ID, named 'member'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberNss withMember() {
@@ -44,7 +44,7 @@ public class MemberAddressNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (地域)region by my REGION_ID, named 'region'.
+     * (地域)REGION by my REGION_ID, named 'region'.
      */
     public void withRegion() {
         _query.xdoNss(() -> _query.queryRegion());

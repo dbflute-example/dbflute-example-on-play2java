@@ -200,7 +200,7 @@ public class MemberSecurityDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * (会員)member by my MEMBER_ID, named 'member'.
+     * (会員)MEMBER by my MEMBER_ID, named 'member'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignMember() {

@@ -270,7 +270,7 @@ public class BsMemberFollowingCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員)member by my MY_MEMBER_ID, named 'memberByMyMemberId'.
+     * (会員)MEMBER by my MY_MEMBER_ID, named 'memberByMyMemberId'.
      * <pre>
      * <span style="color: #0000C0">memberFollowingBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberByMyMemberId()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -283,7 +283,7 @@ public class BsMemberFollowingCB extends AbstractConditionBean {
      */
     public MemberNss setupSelect_MemberByMyMemberId() {
         assertSetupSelectPurpose("memberByMyMemberId");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnMyMemberId();
         }
         doSetupSelect(() -> query().queryMemberByMyMemberId());
@@ -299,7 +299,7 @@ public class BsMemberFollowingCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員)member by my YOUR_MEMBER_ID, named 'memberByYourMemberId'.
+     * (会員)MEMBER by my YOUR_MEMBER_ID, named 'memberByYourMemberId'.
      * <pre>
      * <span style="color: #0000C0">memberFollowingBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberByYourMemberId()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -312,7 +312,7 @@ public class BsMemberFollowingCB extends AbstractConditionBean {
      */
     public MemberNss setupSelect_MemberByYourMemberId() {
         assertSetupSelectPurpose("memberByYourMemberId");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnYourMemberId();
         }
         doSetupSelect(() -> query().queryMemberByYourMemberId());
@@ -357,8 +357,8 @@ public class BsMemberFollowingCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<MemberFollowingCQ> {
@@ -406,7 +406,7 @@ public class BsMemberFollowingCB extends AbstractConditionBean {
         protected String getTableDbName() { return "member_following"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員)member by my MY_MEMBER_ID, named 'memberByMyMemberId'.
+         * (会員)MEMBER by my MY_MEMBER_ID, named 'memberByMyMemberId'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberCB.HpSpecification specifyMemberByMyMemberId() {
@@ -426,7 +426,7 @@ public class BsMemberFollowingCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員)member by my YOUR_MEMBER_ID, named 'memberByYourMemberId'.
+         * (会員)MEMBER by my YOUR_MEMBER_ID, named 'memberByYourMemberId'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberCB.HpSpecification specifyMemberByYourMemberId() {

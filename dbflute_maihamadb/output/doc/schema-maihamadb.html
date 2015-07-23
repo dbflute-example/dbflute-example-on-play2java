@@ -276,9 +276,7 @@ dl.procedurelist dd.column pre {
  <a href="#cdef">Classification Definition</a>
 | <a href="#procedure">Procedure List</a>
 </p>
-<p>
 <p class="sisterlink"><a href="./history-maihamadb.html">to HistoryHTML</a></p>
-</p>
 </div>
 
 <h2>Table List</h2>
@@ -287,7 +285,7 @@ dl.procedurelist dd.column pre {
 	<ul id="suggestion-list" class="suggestionarea"></ul>
 	<span class="searchmemo">*Push 'tab' (primary tab order)</span>
 </div>
-<table summary="Tables in the Schema">
+<table>
 	<thead>
 	<tr>
 		<th class="rownumhead">No.</th>
@@ -488,7 +486,7 @@ dl.procedurelist dd.column pre {
 (会員)MEMBER
 </h2>
 <p class="tablecomment">会員のプロフィールやアカウントなどの基本情報を保持する。<br>基本的に物理削除はなく、退会したらステータスが退会会員になる。<br>ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。</p>
-<table summary="Columns in MEMBER">
+<table>
 	<thead>
 	<tr>
 		<th class="rownumhead">No.</th>
@@ -712,7 +710,7 @@ dl.procedurelist dd.column pre {
 (会員住所情報)MEMBER_ADDRESS
 </h2>
 <p class="tablecomment">会員の住所に関する情報。<br>同時に有効期間ごとに履歴管理されている。</p>
-<table summary="Columns in MEMBER_ADDRESS">
+<table>
 	<thead>
 	<tr>
 		<th class="rownumhead">No.</th>
@@ -936,7 +934,7 @@ dl.procedurelist dd.column pre {
 (会員フォローイング)MEMBER_FOLLOWING
 </h2>
 <p class="tablecomment">とある会員が他の会員をフォローできる。すると、フォローした会員の購入履歴が閲覧できる。</p>
-<table summary="Columns in MEMBER_FOLLOWING">
+<table>
 	<thead>
 	<tr>
 		<th class="rownumhead">No.</th>
@@ -1034,7 +1032,7 @@ dl.procedurelist dd.column pre {
 (会員ログイン情報)MEMBER_LOGIN
 </h2>
 <p class="tablecomment">ログインするたびに登録されるログイン履歴。</p>
-<table summary="Columns in MEMBER_LOGIN">
+<table>
 	<thead>
 	<tr>
 		<th class="rownumhead">No.</th>
@@ -1150,7 +1148,7 @@ dl.procedurelist dd.column pre {
 (会員セキュリティ情報)MEMBER_SECURITY
 </h2>
 <p class="tablecomment">会員とは&nbsp;one-to-one&nbsp;で、会員一人につき必ず一つのセキュリティ情報がある</p>
-<table summary="Columns in MEMBER_SECURITY">
+<table>
 	<thead>
 	<tr>
 		<th class="rownumhead">No.</th>
@@ -1356,7 +1354,7 @@ dl.procedurelist dd.column pre {
 (会員サービス)MEMBER_SERVICE
 </h2>
 <p class="tablecomment">会員のサービス情報（ポイントサービスなど）。</p>
-<table summary="Columns in MEMBER_SERVICE">
+<table>
 	<thead>
 	<tr>
 		<th class="rownumhead">No.</th>
@@ -1543,7 +1541,7 @@ dl.procedurelist dd.column pre {
 <h2 id="member_status" title="type=TABLE, primaryKey={MEMBER_STATUS_CODE}, nameLength=13, columnCount=4">
 (会員ステータス)MEMBER_STATUS
 </h2>
-<table summary="Columns in MEMBER_STATUS">
+<table>
 	<thead>
 	<tr>
 		<th class="rownumhead">No.</th>
@@ -1641,7 +1639,7 @@ dl.procedurelist dd.column pre {
 (会員退会情報)MEMBER_WITHDRAWAL
 </h2>
 <p class="tablecomment">退会会員の退会に関する詳細な情報。<br>退会会員のみデータが存在する。</p>
-<table summary="Columns in MEMBER_WITHDRAWAL">
+<table>
 	<thead>
 	<tr>
 		<th class="rownumhead">No.</th>
@@ -1811,7 +1809,7 @@ dl.procedurelist dd.column pre {
 (商品)PRODUCT
 </h2>
 <p class="tablecomment">会員へ販売する商品のマスタ。<br>販売可能なものだけでなく、生産中止や販売中止などの商品も含まれる。</p>
-<table summary="Columns in PRODUCT">
+<table>
 	<thead>
 	<tr>
 		<th class="rownumhead">No.</th>
@@ -2035,7 +2033,7 @@ dl.procedurelist dd.column pre {
 (商品カテゴリ)PRODUCT_CATEGORY
 </h2>
 <p class="tablecomment">商品のカテゴリを表現するマスタ。<br>自己参照の階層になっている。</p>
-<table summary="Columns in PRODUCT_CATEGORY">
+<table>
 	<thead>
 	<tr>
 		<th class="rownumhead">No.</th>
@@ -2114,7 +2112,7 @@ dl.procedurelist dd.column pre {
 <h2 id="product_status" title="type=TABLE, primaryKey={PRODUCT_STATUS_CODE}, nameLength=14, columnCount=3">
 (商品ステータス)PRODUCT_STATUS
 </h2>
-<table summary="Columns in PRODUCT_STATUS">
+<table>
 	<thead>
 	<tr>
 		<th class="rownumhead">No.</th>
@@ -2190,7 +2188,7 @@ dl.procedurelist dd.column pre {
 (購入)PURCHASE
 </h2>
 <p class="tablecomment">一つの商品に対する一回の購入を表現する。<br>一回の購入で一つの商品を複数個買うこともある。</p>
-<table summary="Columns in PURCHASE">
+<table>
 	<thead>
 	<tr>
 		<th class="rownumhead">No.</th>
@@ -2432,7 +2430,7 @@ dl.procedurelist dd.column pre {
 (購入支払)PURCHASE_PAYMENT
 </h2>
 <p class="tablecomment">購入に対する支払。<br>分割払いもできるのでmanyとなり、会員からの孫テーブルのテストができてうれしい。</p>
-<table summary="Columns in PURCHASE_PAYMENT">
+<table>
 	<thead>
 	<tr>
 		<th class="rownumhead">No.</th>
@@ -2620,7 +2618,7 @@ dl.procedurelist dd.column pre {
 (地域)REGION
 </h2>
 <p class="tablecomment">主に会員の住所に対応する地域。<br>かなりざっくりした感じではある。</p>
-<table summary="Columns in REGION">
+<table>
 	<thead>
 	<tr>
 		<th class="rownumhead">No.</th>
@@ -2679,7 +2677,7 @@ dl.procedurelist dd.column pre {
 (サービスランク)SERVICE_RANK
 </h2>
 <p class="tablecomment">会員のサービスレベルを表現するランク。<br>（ゴールドとかプラチナとか）</p>
-<table summary="Columns in SERVICE_RANK">
+<table>
 	<thead>
 	<tr>
 		<th class="rownumhead">No.</th>
@@ -2813,7 +2811,7 @@ dl.procedurelist dd.column pre {
 (退会理由)WITHDRAWAL_REASON
 </h2>
 <p class="tablecomment">会員に選ばせる定型的な退会理由のマスタ。</p>
-<table summary="Columns in WITHDRAWAL_REASON">
+<table>
 	<thead>
 	<tr>
 		<th class="rownumhead">No.</th>
@@ -2892,7 +2890,7 @@ dl.procedurelist dd.column pre {
 <h2 id="summary_product" title="type=VIEW, primaryKey={}, nameLength=15, columnCount=5">
 (VIEW)SUMMARY_PRODUCT
 </h2>
-<table summary="Columns in SUMMARY_PRODUCT">
+<table>
 	<thead>
 	<tr>
 		<th class="rownumhead">No.</th>
@@ -3013,7 +3011,7 @@ dl.procedurelist dd.column pre {
 <h2 id="summary_withdrawal" title="type=VIEW, primaryKey={}, nameLength=18, columnCount=9">
 (VIEW)SUMMARY_WITHDRAWAL
 </h2>
-<table summary="Columns in SUMMARY_WITHDRAWAL">
+<table>
 	<thead>
 	<tr>
 		<th class="rownumhead">No.</th>
@@ -3199,7 +3197,7 @@ dl.procedurelist dd.column pre {
 </table>
 
 <h2 id="cdef">Classification Definition</h2>
-<table summary="Classifications in the Schema">
+<table>
 	<thead>
 	<tr>
 		<th>Classification</th>

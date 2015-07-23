@@ -47,7 +47,7 @@ import docksidestage.dbflute.exentity.*;
  *     
  * 
  * [referrer table]
- *     product
+ *     PRODUCT
  * 
  * [foreign property]
  *     
@@ -213,11 +213,11 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** (商品)product by PRODUCT_STATUS_CODE, named 'productList'. */
+    /** (商品)PRODUCT by PRODUCT_STATUS_CODE, named 'productList'. */
     protected List<Product> _productList;
 
     /**
-     * [get] (商品)product by PRODUCT_STATUS_CODE, named 'productList'.
+     * [get] (商品)PRODUCT by PRODUCT_STATUS_CODE, named 'productList'.
      * @return The entity list of referrer property 'productList'. (NotNull: even if no loading, returns empty list)
      */
     public List<Product> getProductList() {
@@ -226,7 +226,7 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] (商品)product by PRODUCT_STATUS_CODE, named 'productList'.
+     * [set] (商品)PRODUCT by PRODUCT_STATUS_CODE, named 'productList'.
      * @param productList The entity list of referrer property 'productList'. (NullAllowed)
      */
     public void setProductList(List<Product> productList) {

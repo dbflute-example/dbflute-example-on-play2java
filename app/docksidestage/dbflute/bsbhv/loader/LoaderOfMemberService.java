@@ -40,7 +40,7 @@ import docksidestage.dbflute.exentity.*;
  *     VERSION_NO
  *
  * [foreign table]
- *     member, service_rank
+ *     MEMBER, SERVICE_RANK
  *
  * [referrer table]
  *     

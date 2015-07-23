@@ -148,7 +148,7 @@ public class WithdrawalReasonDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * (会員退会情報)member_withdrawal by WITHDRAWAL_REASON_CODE, named 'memberWithdrawalList'.
+     * (会員退会情報)MEMBER_WITHDRAWAL by WITHDRAWAL_REASON_CODE, named 'memberWithdrawalList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerMemberWithdrawalList() {

@@ -376,7 +376,7 @@ public class BsProductCQ extends AbstractBsProductCQ {
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * (商品カテゴリ)product_category by my PRODUCT_CATEGORY_CODE, named 'productCategory'.
+     * (商品カテゴリ)PRODUCT_CATEGORY by my PRODUCT_CATEGORY_CODE, named 'productCategory'.
      * @return The instance of condition-query. (NotNull)
      */
     public ProductCategoryCQ queryProductCategory() {
@@ -396,7 +396,7 @@ public class BsProductCQ extends AbstractBsProductCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (商品ステータス)product_status by my PRODUCT_STATUS_CODE, named 'productStatus'.
+     * (商品ステータス)PRODUCT_STATUS by my PRODUCT_STATUS_CODE, named 'productStatus'.
      * @return The instance of condition-query. (NotNull)
      */
     public ProductStatusCQ queryProductStatus() {

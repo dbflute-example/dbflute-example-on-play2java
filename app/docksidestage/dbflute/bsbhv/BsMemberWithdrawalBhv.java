@@ -53,7 +53,7 @@ import docksidestage.dbflute.cbean.*;
  *     
  *
  * [foreign table]
- *     member, withdrawal_reason
+ *     MEMBER, WITHDRAWAL_REASON
  *
  * [referrer table]
  *     

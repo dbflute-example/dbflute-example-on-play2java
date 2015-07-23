@@ -53,10 +53,10 @@ import docksidestage.dbflute.cbean.*;
  *     VERSION_NO
  *
  * [foreign table]
- *     member, product
+ *     MEMBER, PRODUCT
  *
  * [referrer table]
- *     purchase_payment
+ *     PURCHASE_PAYMENT
  *
  * [foreign property]
  *     member, product
@@ -403,7 +403,7 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
 
     /**
      * Load referrer of purchasePaymentList by the set-upper of referrer. <br>
-     * (購入支払)purchase_payment by PURCHASE_ID, named 'purchasePaymentList'.
+     * (購入支払)PURCHASE_PAYMENT by PURCHASE_ID, named 'purchasePaymentList'.
      * <pre>
      * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">loadPurchasePayment</span>(<span style="color: #553000">purchaseList</span>, <span style="color: #553000">paymentCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">paymentCB</span>.setupSelect...
@@ -434,7 +434,7 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
 
     /**
      * Load referrer of purchasePaymentList by the set-upper of referrer. <br>
-     * (購入支払)purchase_payment by PURCHASE_ID, named 'purchasePaymentList'.
+     * (購入支払)PURCHASE_PAYMENT by PURCHASE_ID, named 'purchasePaymentList'.
      * <pre>
      * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">loadPurchasePayment</span>(<span style="color: #553000">purchase</span>, <span style="color: #553000">paymentCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">paymentCB</span>.setupSelect...

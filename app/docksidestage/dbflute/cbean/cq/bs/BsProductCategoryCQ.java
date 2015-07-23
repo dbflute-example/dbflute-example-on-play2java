@@ -227,7 +227,7 @@ public class BsProductCategoryCQ extends AbstractBsProductCategoryCQ {
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * (商品カテゴリ)product_category by my PARENT_CATEGORY_CODE, named 'productCategorySelf'.
+     * (商品カテゴリ)PRODUCT_CATEGORY by my PARENT_CATEGORY_CODE, named 'productCategorySelf'.
      * @return The instance of condition-query. (NotNull)
      */
     public ProductCategoryCQ queryProductCategorySelf() {

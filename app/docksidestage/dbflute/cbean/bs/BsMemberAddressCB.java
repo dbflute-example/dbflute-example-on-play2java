@@ -270,7 +270,7 @@ public class BsMemberAddressCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員)member by my MEMBER_ID, named 'member'.
+     * (会員)MEMBER by my MEMBER_ID, named 'member'.
      * <pre>
      * <span style="color: #0000C0">memberAddressBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_Member()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -283,7 +283,7 @@ public class BsMemberAddressCB extends AbstractConditionBean {
      */
     public MemberNss setupSelect_Member() {
         assertSetupSelectPurpose("member");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnMemberId();
         }
         doSetupSelect(() -> query().queryMember());
@@ -294,7 +294,7 @@ public class BsMemberAddressCB extends AbstractConditionBean {
 
     /**
      * Set up relation columns to select clause. <br>
-     * (地域)region by my REGION_ID, named 'region'.
+     * (地域)REGION by my REGION_ID, named 'region'.
      * <pre>
      * <span style="color: #0000C0">memberAddressBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_Region()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -306,7 +306,7 @@ public class BsMemberAddressCB extends AbstractConditionBean {
      */
     public void setupSelect_Region() {
         assertSetupSelectPurpose("region");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnRegionId();
         }
         doSetupSelect(() -> query().queryRegion());
@@ -348,8 +348,8 @@ public class BsMemberAddressCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<MemberAddressCQ> {
@@ -432,7 +432,7 @@ public class BsMemberAddressCB extends AbstractConditionBean {
         protected String getTableDbName() { return "member_address"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員)member by my MEMBER_ID, named 'member'.
+         * (会員)MEMBER by my MEMBER_ID, named 'member'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberCB.HpSpecification specifyMember() {
@@ -452,7 +452,7 @@ public class BsMemberAddressCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (地域)region by my REGION_ID, named 'region'.
+         * (地域)REGION by my REGION_ID, named 'region'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public RegionCB.HpSpecification specifyRegion() {

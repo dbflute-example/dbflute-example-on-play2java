@@ -47,7 +47,7 @@ import docksidestage.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     member_status, member
+ *     MEMBER_STATUS, MEMBER
  * 
  * [referrer table]
  *     
@@ -335,11 +335,11 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** (会員ステータス)member_status by my LOGIN_MEMBER_STATUS_CODE, named 'memberStatus'. */
+    /** (会員ステータス)MEMBER_STATUS by my LOGIN_MEMBER_STATUS_CODE, named 'memberStatus'. */
     protected OptionalEntity<MemberStatus> _memberStatus;
 
     /**
-     * [get] (会員ステータス)member_status by my LOGIN_MEMBER_STATUS_CODE, named 'memberStatus'. <br>
+     * [get] (会員ステータス)MEMBER_STATUS by my LOGIN_MEMBER_STATUS_CODE, named 'memberStatus'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberStatus'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -349,18 +349,18 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [set] (会員ステータス)member_status by my LOGIN_MEMBER_STATUS_CODE, named 'memberStatus'.
+     * [set] (会員ステータス)MEMBER_STATUS by my LOGIN_MEMBER_STATUS_CODE, named 'memberStatus'.
      * @param memberStatus The entity of foreign property 'memberStatus'. (NullAllowed)
      */
     public void setMemberStatus(OptionalEntity<MemberStatus> memberStatus) {
         _memberStatus = memberStatus;
     }
 
-    /** (会員)member by my MEMBER_ID, named 'member'. */
+    /** (会員)MEMBER by my MEMBER_ID, named 'member'. */
     protected OptionalEntity<Member> _member;
 
     /**
-     * [get] (会員)member by my MEMBER_ID, named 'member'. <br>
+     * [get] (会員)MEMBER by my MEMBER_ID, named 'member'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'member'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -370,7 +370,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [set] (会員)member by my MEMBER_ID, named 'member'.
+     * [set] (会員)MEMBER by my MEMBER_ID, named 'member'.
      * @param member The entity of foreign property 'member'. (NullAllowed)
      */
     public void setMember(OptionalEntity<Member> member) {

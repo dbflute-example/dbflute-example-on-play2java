@@ -222,7 +222,7 @@ public class ProductDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * (商品カテゴリ)product_category by my PRODUCT_CATEGORY_CODE, named 'productCategory'.
+     * (商品カテゴリ)PRODUCT_CATEGORY by my PRODUCT_CATEGORY_CODE, named 'productCategory'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignProductCategory() {
@@ -230,7 +230,7 @@ public class ProductDbm extends AbstractDBMeta {
         return cfi("FK_PRODUCT_PRODUCT_CATEGORY", "productCategory", this, ProductCategoryDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "productList", false);
     }
     /**
-     * (商品ステータス)product_status by my PRODUCT_STATUS_CODE, named 'productStatus'.
+     * (商品ステータス)PRODUCT_STATUS by my PRODUCT_STATUS_CODE, named 'productStatus'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignProductStatus() {
@@ -242,7 +242,7 @@ public class ProductDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * (購入)purchase by PRODUCT_ID, named 'purchaseList'.
+     * (購入)PURCHASE by PRODUCT_ID, named 'purchaseList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerPurchaseList() {

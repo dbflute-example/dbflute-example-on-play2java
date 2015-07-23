@@ -47,7 +47,7 @@ import docksidestage.dbflute.exentity.*;
  *     
  * 
  * [referrer table]
- *     member, member_login
+ *     MEMBER, MEMBER_LOGIN
  * 
  * [foreign property]
  *     
@@ -238,11 +238,11 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** (会員)member by MEMBER_STATUS_CODE, named 'memberList'. */
+    /** (会員)MEMBER by MEMBER_STATUS_CODE, named 'memberList'. */
     protected List<Member> _memberList;
 
     /**
-     * [get] (会員)member by MEMBER_STATUS_CODE, named 'memberList'.
+     * [get] (会員)MEMBER by MEMBER_STATUS_CODE, named 'memberList'.
      * @return The entity list of referrer property 'memberList'. (NotNull: even if no loading, returns empty list)
      */
     public List<Member> getMemberList() {
@@ -251,18 +251,18 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [set] (会員)member by MEMBER_STATUS_CODE, named 'memberList'.
+     * [set] (会員)MEMBER by MEMBER_STATUS_CODE, named 'memberList'.
      * @param memberList The entity list of referrer property 'memberList'. (NullAllowed)
      */
     public void setMemberList(List<Member> memberList) {
         _memberList = memberList;
     }
 
-    /** (会員ログイン情報)member_login by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginList'. */
+    /** (会員ログイン情報)MEMBER_LOGIN by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginList'. */
     protected List<MemberLogin> _memberLoginList;
 
     /**
-     * [get] (会員ログイン情報)member_login by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginList'.
+     * [get] (会員ログイン情報)MEMBER_LOGIN by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginList'.
      * @return The entity list of referrer property 'memberLoginList'. (NotNull: even if no loading, returns empty list)
      */
     public List<MemberLogin> getMemberLoginList() {
@@ -271,7 +271,7 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [set] (会員ログイン情報)member_login by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginList'.
+     * [set] (会員ログイン情報)MEMBER_LOGIN by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginList'.
      * @param memberLoginList The entity list of referrer property 'memberLoginList'. (NullAllowed)
      */
     public void setMemberLoginList(List<MemberLogin> memberLoginList) {

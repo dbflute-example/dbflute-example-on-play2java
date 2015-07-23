@@ -269,7 +269,7 @@ public class BsMemberServiceCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員)member by my MEMBER_ID, named 'member'.
+     * (会員)MEMBER by my MEMBER_ID, named 'member'.
      * <pre>
      * <span style="color: #0000C0">memberServiceBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_Member()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -282,7 +282,7 @@ public class BsMemberServiceCB extends AbstractConditionBean {
      */
     public MemberNss setupSelect_Member() {
         assertSetupSelectPurpose("member");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnMemberId();
         }
         doSetupSelect(() -> query().queryMember());
@@ -293,7 +293,7 @@ public class BsMemberServiceCB extends AbstractConditionBean {
 
     /**
      * Set up relation columns to select clause. <br>
-     * (サービスランク)service_rank by my SERVICE_RANK_CODE, named 'serviceRank'.
+     * (サービスランク)SERVICE_RANK by my SERVICE_RANK_CODE, named 'serviceRank'.
      * <pre>
      * <span style="color: #0000C0">memberServiceBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_ServiceRank()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -305,7 +305,7 @@ public class BsMemberServiceCB extends AbstractConditionBean {
      */
     public void setupSelect_ServiceRank() {
         assertSetupSelectPurpose("serviceRank");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnServiceRankCode();
         }
         doSetupSelect(() -> query().queryServiceRank());
@@ -347,8 +347,8 @@ public class BsMemberServiceCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<MemberServiceCQ> {
@@ -421,7 +421,7 @@ public class BsMemberServiceCB extends AbstractConditionBean {
         protected String getTableDbName() { return "member_service"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員)member by my MEMBER_ID, named 'member'.
+         * (会員)MEMBER by my MEMBER_ID, named 'member'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberCB.HpSpecification specifyMember() {
@@ -441,7 +441,7 @@ public class BsMemberServiceCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (サービスランク)service_rank by my SERVICE_RANK_CODE, named 'serviceRank'.
+         * (サービスランク)SERVICE_RANK by my SERVICE_RANK_CODE, named 'serviceRank'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public ServiceRankCB.HpSpecification specifyServiceRank() {

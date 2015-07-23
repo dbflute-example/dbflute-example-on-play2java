@@ -236,7 +236,7 @@ public class PurchaseDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * (会員)member by my MEMBER_ID, named 'member'.
+     * (会員)MEMBER by my MEMBER_ID, named 'member'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignMember() {
@@ -244,7 +244,7 @@ public class PurchaseDbm extends AbstractDBMeta {
         return cfi("FK_PURCHASE_MEMBER", "member", this, MemberDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "purchaseList", false);
     }
     /**
-     * (商品)product by my PRODUCT_ID, named 'product'.
+     * (商品)PRODUCT by my PRODUCT_ID, named 'product'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignProduct() {
@@ -256,7 +256,7 @@ public class PurchaseDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * (購入支払)purchase_payment by PURCHASE_ID, named 'purchasePaymentList'.
+     * (購入支払)PURCHASE_PAYMENT by PURCHASE_ID, named 'purchasePaymentList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerPurchasePaymentList() {

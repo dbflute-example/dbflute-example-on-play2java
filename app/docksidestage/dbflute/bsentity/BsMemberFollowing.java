@@ -46,7 +46,7 @@ import docksidestage.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     member
+ *     MEMBER
  * 
  * [referrer table]
  *     
@@ -132,11 +132,11 @@ public abstract class BsMemberFollowing extends AbstractEntity implements Domain
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** (会員)member by my MY_MEMBER_ID, named 'memberByMyMemberId'. */
+    /** (会員)MEMBER by my MY_MEMBER_ID, named 'memberByMyMemberId'. */
     protected OptionalEntity<Member> _memberByMyMemberId;
 
     /**
-     * [get] (会員)member by my MY_MEMBER_ID, named 'memberByMyMemberId'. <br>
+     * [get] (会員)MEMBER by my MY_MEMBER_ID, named 'memberByMyMemberId'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberByMyMemberId'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -146,18 +146,18 @@ public abstract class BsMemberFollowing extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] (会員)member by my MY_MEMBER_ID, named 'memberByMyMemberId'.
+     * [set] (会員)MEMBER by my MY_MEMBER_ID, named 'memberByMyMemberId'.
      * @param memberByMyMemberId The entity of foreign property 'memberByMyMemberId'. (NullAllowed)
      */
     public void setMemberByMyMemberId(OptionalEntity<Member> memberByMyMemberId) {
         _memberByMyMemberId = memberByMyMemberId;
     }
 
-    /** (会員)member by my YOUR_MEMBER_ID, named 'memberByYourMemberId'. */
+    /** (会員)MEMBER by my YOUR_MEMBER_ID, named 'memberByYourMemberId'. */
     protected OptionalEntity<Member> _memberByYourMemberId;
 
     /**
-     * [get] (会員)member by my YOUR_MEMBER_ID, named 'memberByYourMemberId'. <br>
+     * [get] (会員)MEMBER by my YOUR_MEMBER_ID, named 'memberByYourMemberId'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'memberByYourMemberId'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -167,7 +167,7 @@ public abstract class BsMemberFollowing extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] (会員)member by my YOUR_MEMBER_ID, named 'memberByYourMemberId'.
+     * [set] (会員)MEMBER by my YOUR_MEMBER_ID, named 'memberByYourMemberId'.
      * @param memberByYourMemberId The entity of foreign property 'memberByYourMemberId'. (NullAllowed)
      */
     public void setMemberByYourMemberId(OptionalEntity<Member> memberByYourMemberId) {

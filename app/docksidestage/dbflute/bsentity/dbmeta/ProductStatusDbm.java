@@ -148,7 +148,7 @@ public class ProductStatusDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * (商品)product by PRODUCT_STATUS_CODE, named 'productList'.
+     * (商品)PRODUCT by PRODUCT_STATUS_CODE, named 'productList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerProductList() {

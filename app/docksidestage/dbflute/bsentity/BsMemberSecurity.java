@@ -47,7 +47,7 @@ import docksidestage.dbflute.exentity.*;
  *     VERSION_NO
  * 
  * [foreign table]
- *     member
+ *     MEMBER
  * 
  * [referrer table]
  *     
@@ -150,11 +150,11 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** (会員)member by my MEMBER_ID, named 'member'. */
+    /** (会員)MEMBER by my MEMBER_ID, named 'member'. */
     protected OptionalEntity<Member> _member;
 
     /**
-     * [get] (会員)member by my MEMBER_ID, named 'member'. <br>
+     * [get] (会員)MEMBER by my MEMBER_ID, named 'member'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'member'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -164,7 +164,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] (会員)member by my MEMBER_ID, named 'member'.
+     * [set] (会員)MEMBER by my MEMBER_ID, named 'member'.
      * @param member The entity of foreign property 'member'. (NullAllowed)
      */
     public void setMember(OptionalEntity<Member> member) {
