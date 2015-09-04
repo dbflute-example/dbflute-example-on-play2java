@@ -11,11 +11,11 @@ libraryDependencies ++= Seq(
   javaEbean,
   cache,
   javaWs,
-  "org.dbflute" % "dbflute-runtime" % "1.1.0-sp3-RC6",
+  "org.dbflute" % "dbflute-runtime" % "1.1.0-sp8",
   "mysql" % "mysql-connector-java" % "5.1.33",
   "com.google.inject" % "guice" % "3.0",
-  "org.springframework" % "spring-jdbc" % "4.1.1.RELEASE",
-  "org.springframework" % "spring-aop" % "4.1.1.RELEASE"
+  "org.springframework" % "spring-jdbc" % "4.2.1.RELEASE",
+  "org.springframework" % "spring-aop" % "4.2.1.RELEASE"
 )
 
 PlayKeys.ebeanEnabled := false
