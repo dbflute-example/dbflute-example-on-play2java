@@ -61,7 +61,7 @@ public abstract class AbstractBsSummaryWithdrawalCQ extends AbstractConditionQue
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ID: {NotNull, INT(10)}
-     * @param memberId The value of memberId as equal. (NullAllowed: if null, no condition)
+     * @param memberId The value of memberId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setMemberId_Equal(Integer memberId) {
         doSetMemberId_Equal(memberId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsSummaryWithdrawalCQ extends AbstractConditionQue
     /**
      * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ID: {NotNull, INT(10)}
-     * @param memberId The value of memberId as notEqual. (NullAllowed: if null, no condition)
+     * @param memberId The value of memberId as notEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setMemberId_NotEqual(Integer memberId) {
         doSetMemberId_NotEqual(memberId);
@@ -87,7 +87,7 @@ public abstract class AbstractBsSummaryWithdrawalCQ extends AbstractConditionQue
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ID: {NotNull, INT(10)}
-     * @param memberId The value of memberId as greaterThan. (NullAllowed: if null, no condition)
+     * @param memberId The value of memberId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setMemberId_GreaterThan(Integer memberId) {
         regMemberId(CK_GT, memberId);
@@ -96,7 +96,7 @@ public abstract class AbstractBsSummaryWithdrawalCQ extends AbstractConditionQue
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ID: {NotNull, INT(10)}
-     * @param memberId The value of memberId as lessThan. (NullAllowed: if null, no condition)
+     * @param memberId The value of memberId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setMemberId_LessThan(Integer memberId) {
         regMemberId(CK_LT, memberId);
@@ -105,7 +105,7 @@ public abstract class AbstractBsSummaryWithdrawalCQ extends AbstractConditionQue
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ID: {NotNull, INT(10)}
-     * @param memberId The value of memberId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param memberId The value of memberId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setMemberId_GreaterEqual(Integer memberId) {
         regMemberId(CK_GE, memberId);
@@ -114,7 +114,7 @@ public abstract class AbstractBsSummaryWithdrawalCQ extends AbstractConditionQue
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ID: {NotNull, INT(10)}
-     * @param memberId The value of memberId as lessEqual. (NullAllowed: if null, no condition)
+     * @param memberId The value of memberId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setMemberId_LessEqual(Integer memberId) {
         regMemberId(CK_LE, memberId);
@@ -529,7 +529,7 @@ public abstract class AbstractBsSummaryWithdrawalCQ extends AbstractConditionQue
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * (退会日時)WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)}
-     * @param withdrawalDatetime The value of withdrawalDatetime as equal. (NullAllowed: if null, no condition)
+     * @param withdrawalDatetime The value of withdrawalDatetime as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setWithdrawalDatetime_Equal(java.time.LocalDateTime withdrawalDatetime) {
         regWithdrawalDatetime(CK_EQ,  withdrawalDatetime);
@@ -538,7 +538,7 @@ public abstract class AbstractBsSummaryWithdrawalCQ extends AbstractConditionQue
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (退会日時)WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)}
-     * @param withdrawalDatetime The value of withdrawalDatetime as greaterThan. (NullAllowed: if null, no condition)
+     * @param withdrawalDatetime The value of withdrawalDatetime as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setWithdrawalDatetime_GreaterThan(java.time.LocalDateTime withdrawalDatetime) {
         regWithdrawalDatetime(CK_GT,  withdrawalDatetime);
@@ -547,7 +547,7 @@ public abstract class AbstractBsSummaryWithdrawalCQ extends AbstractConditionQue
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (退会日時)WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)}
-     * @param withdrawalDatetime The value of withdrawalDatetime as lessThan. (NullAllowed: if null, no condition)
+     * @param withdrawalDatetime The value of withdrawalDatetime as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setWithdrawalDatetime_LessThan(java.time.LocalDateTime withdrawalDatetime) {
         regWithdrawalDatetime(CK_LT,  withdrawalDatetime);
@@ -556,7 +556,7 @@ public abstract class AbstractBsSummaryWithdrawalCQ extends AbstractConditionQue
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * (退会日時)WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)}
-     * @param withdrawalDatetime The value of withdrawalDatetime as greaterEqual. (NullAllowed: if null, no condition)
+     * @param withdrawalDatetime The value of withdrawalDatetime as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setWithdrawalDatetime_GreaterEqual(java.time.LocalDateTime withdrawalDatetime) {
         regWithdrawalDatetime(CK_GE,  withdrawalDatetime);
@@ -565,7 +565,7 @@ public abstract class AbstractBsSummaryWithdrawalCQ extends AbstractConditionQue
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * (退会日時)WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)}
-     * @param withdrawalDatetime The value of withdrawalDatetime as lessEqual. (NullAllowed: if null, no condition)
+     * @param withdrawalDatetime The value of withdrawalDatetime as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setWithdrawalDatetime_LessEqual(java.time.LocalDateTime withdrawalDatetime) {
         regWithdrawalDatetime(CK_LE, withdrawalDatetime);
@@ -799,7 +799,7 @@ public abstract class AbstractBsSummaryWithdrawalCQ extends AbstractConditionQue
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * MAX_PURCHASE_PRICE: {BIGINT(19)}
-     * @param maxPurchasePrice The value of maxPurchasePrice as equal. (NullAllowed: if null, no condition)
+     * @param maxPurchasePrice The value of maxPurchasePrice as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setMaxPurchasePrice_Equal(Long maxPurchasePrice) {
         doSetMaxPurchasePrice_Equal(maxPurchasePrice);
@@ -812,7 +812,7 @@ public abstract class AbstractBsSummaryWithdrawalCQ extends AbstractConditionQue
     /**
      * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MAX_PURCHASE_PRICE: {BIGINT(19)}
-     * @param maxPurchasePrice The value of maxPurchasePrice as notEqual. (NullAllowed: if null, no condition)
+     * @param maxPurchasePrice The value of maxPurchasePrice as notEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setMaxPurchasePrice_NotEqual(Long maxPurchasePrice) {
         doSetMaxPurchasePrice_NotEqual(maxPurchasePrice);
@@ -825,7 +825,7 @@ public abstract class AbstractBsSummaryWithdrawalCQ extends AbstractConditionQue
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MAX_PURCHASE_PRICE: {BIGINT(19)}
-     * @param maxPurchasePrice The value of maxPurchasePrice as greaterThan. (NullAllowed: if null, no condition)
+     * @param maxPurchasePrice The value of maxPurchasePrice as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setMaxPurchasePrice_GreaterThan(Long maxPurchasePrice) {
         regMaxPurchasePrice(CK_GT, maxPurchasePrice);
@@ -834,7 +834,7 @@ public abstract class AbstractBsSummaryWithdrawalCQ extends AbstractConditionQue
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MAX_PURCHASE_PRICE: {BIGINT(19)}
-     * @param maxPurchasePrice The value of maxPurchasePrice as lessThan. (NullAllowed: if null, no condition)
+     * @param maxPurchasePrice The value of maxPurchasePrice as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setMaxPurchasePrice_LessThan(Long maxPurchasePrice) {
         regMaxPurchasePrice(CK_LT, maxPurchasePrice);
@@ -843,7 +843,7 @@ public abstract class AbstractBsSummaryWithdrawalCQ extends AbstractConditionQue
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * MAX_PURCHASE_PRICE: {BIGINT(19)}
-     * @param maxPurchasePrice The value of maxPurchasePrice as greaterEqual. (NullAllowed: if null, no condition)
+     * @param maxPurchasePrice The value of maxPurchasePrice as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setMaxPurchasePrice_GreaterEqual(Long maxPurchasePrice) {
         regMaxPurchasePrice(CK_GE, maxPurchasePrice);
@@ -852,7 +852,7 @@ public abstract class AbstractBsSummaryWithdrawalCQ extends AbstractConditionQue
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * MAX_PURCHASE_PRICE: {BIGINT(19)}
-     * @param maxPurchasePrice The value of maxPurchasePrice as lessEqual. (NullAllowed: if null, no condition)
+     * @param maxPurchasePrice The value of maxPurchasePrice as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setMaxPurchasePrice_LessEqual(Long maxPurchasePrice) {
         regMaxPurchasePrice(CK_LE, maxPurchasePrice);
