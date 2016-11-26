@@ -4,7 +4,7 @@ version := "1.0-SNAPSHOT"
 
 lazy val root = (project in file(".")).enablePlugins(PlayJava)
 
-scalaVersion := "2.11.1"
+scalaVersion := "2.11.8"
 
 libraryDependencies ++= Seq(
   javaJdbc,
@@ -14,8 +14,8 @@ libraryDependencies ++= Seq(
   "org.dbflute" % "dbflute-runtime" % "1.1.1",
   "mysql" % "mysql-connector-java" % "5.1.37",
   "com.google.inject" % "guice" % "3.0",
-  "org.springframework" % "spring-jdbc" % "4.2.1.RELEASE",
-  "org.springframework" % "spring-aop" % "4.2.1.RELEASE"
+  "org.springframework" % "spring-jdbc" % "4.3.4.RELEASE",
+  "org.springframework" % "spring-aop" % "4.3.4.RELEASE"
 )
 
 PlayKeys.ebeanEnabled := false
