@@ -472,7 +472,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * (モバイルログインフラグ)MOBILE_LOGIN_FLG: {NotNull, INT(10), classification=Flg}
      * @param mobileLoginFlgList The collection of mobileLoginFlg as inScope. (NullAllowed: if null (or empty), no condition)
      */
-    public void setMobileLoginFlg_InScope(Collection<Integer> mobileLoginFlgList) {
+    protected void setMobileLoginFlg_InScope(Collection<Integer> mobileLoginFlgList) {
         doSetMobileLoginFlg_InScope(mobileLoginFlgList);
     }
 
@@ -615,7 +615,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * (ログイン会員ステータスコード)LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status, classification=MemberStatus}
      * @param loginMemberStatusCodeList The collection of loginMemberStatusCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
-    public void setLoginMemberStatusCode_InScope(Collection<String> loginMemberStatusCodeList) {
+    protected void setLoginMemberStatusCode_InScope(Collection<String> loginMemberStatusCodeList) {
         doSetLoginMemberStatusCode_InScope(loginMemberStatusCodeList);
     }
 

@@ -552,7 +552,7 @@ public abstract class AbstractBsMemberServiceCQ extends AbstractConditionQuery {
      * (サービスランクコード)SERVICE_RANK_CODE: {IX, NotNull, CHAR(3), FK to service_rank, classification=ServiceRank}
      * @param serviceRankCodeList The collection of serviceRankCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
-    public void setServiceRankCode_InScope(Collection<String> serviceRankCodeList) {
+    protected void setServiceRankCode_InScope(Collection<String> serviceRankCodeList) {
         doSetServiceRankCode_InScope(serviceRankCodeList);
     }
 
