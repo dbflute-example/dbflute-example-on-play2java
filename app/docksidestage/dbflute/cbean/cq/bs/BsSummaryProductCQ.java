@@ -94,7 +94,7 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
       return _productId; }
     protected ConditionValue xgetCValueProductId() { return xdfgetProductId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (商品ID)PRODUCT_ID: {NotNull, INT(10), default=[0]}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
       return _productName; }
     protected ConditionValue xgetCValueProductName() { return xdfgetProductName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
       return _productHandleCode; }
     protected ConditionValue xgetCValueProductHandleCode() { return xdfgetProductHandleCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
      * @return this. (NotNull)
@@ -154,7 +154,7 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
       return _productStatusCode; }
     protected ConditionValue xgetCValueProductStatusCode() { return xdfgetProductStatusCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * PRODUCT_STATUS_CODE: {NotNull, CHAR(3)}
      * @return this. (NotNull)
@@ -174,7 +174,7 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
       return _latestPurchaseDatetime; }
     protected ConditionValue xgetCValueLatestPurchaseDatetime() { return xdfgetLatestPurchaseDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * LATEST_PURCHASE_DATETIME: {DATETIME(19)}
      * @return this. (NotNull)

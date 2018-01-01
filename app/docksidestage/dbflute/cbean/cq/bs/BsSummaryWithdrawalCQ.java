@@ -94,7 +94,7 @@ public class BsSummaryWithdrawalCQ extends AbstractBsSummaryWithdrawalCQ {
       return _memberId; }
     protected ConditionValue xgetCValueMemberId() { return xdfgetMemberId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MEMBER_ID: {NotNull, INT(10)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsSummaryWithdrawalCQ extends AbstractBsSummaryWithdrawalCQ {
       return _memberName; }
     protected ConditionValue xgetCValueMemberName() { return xdfgetMemberName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (会員名称)MEMBER_NAME: {VARCHAR(180)}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsSummaryWithdrawalCQ extends AbstractBsSummaryWithdrawalCQ {
       return _withdrawalReasonCode; }
     protected ConditionValue xgetCValueWithdrawalReasonCode() { return xdfgetWithdrawalReasonCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (退会理由コード)WITHDRAWAL_REASON_CODE: {CHAR(3)}
      * @return this. (NotNull)
@@ -166,7 +166,7 @@ public class BsSummaryWithdrawalCQ extends AbstractBsSummaryWithdrawalCQ {
       return _withdrawalDatetime; }
     protected ConditionValue xgetCValueWithdrawalDatetime() { return xdfgetWithdrawalDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (退会日時)WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
@@ -186,7 +186,7 @@ public class BsSummaryWithdrawalCQ extends AbstractBsSummaryWithdrawalCQ {
       return _memberStatusCode; }
     protected ConditionValue xgetCValueMemberStatusCode() { return xdfgetMemberStatusCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3)}
      * @return this. (NotNull)
@@ -206,7 +206,7 @@ public class BsSummaryWithdrawalCQ extends AbstractBsSummaryWithdrawalCQ {
       return _memberStatusName; }
     protected ConditionValue xgetCValueMemberStatusName() { return xdfgetMemberStatusName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50)}
      * @return this. (NotNull)
@@ -226,7 +226,7 @@ public class BsSummaryWithdrawalCQ extends AbstractBsSummaryWithdrawalCQ {
       return _maxPurchasePrice; }
     protected ConditionValue xgetCValueMaxPurchasePrice() { return xdfgetMaxPurchasePrice(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MAX_PURCHASE_PRICE: {BIGINT(19)}
      * @return this. (NotNull)

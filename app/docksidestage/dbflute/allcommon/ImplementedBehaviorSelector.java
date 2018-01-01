@@ -154,7 +154,7 @@ public class ImplementedBehaviorSelector implements BehaviorSelector {
     protected <COMPONENT> COMPONENT getComponent(Class<COMPONENT> componentType) { // only for behavior
         assertObjectNotNull("componentType", componentType);
         assertObjectNotNull("_container", _container);
-		return _container.getInstance(componentType);
+        return _container.getInstance(componentType);
     }
 
     // ===================================================================================
