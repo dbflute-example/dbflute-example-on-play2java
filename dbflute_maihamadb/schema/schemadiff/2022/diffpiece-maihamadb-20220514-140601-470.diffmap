@@ -1,0 +1,63 @@
+map:{
+    ; 2022/05/14 14:06:01.470 = map:{
+        ; diffDate = 2022/05/14 14:06:01.470
+        ; tableCount = map:{
+            ; next = 16
+            ; previous = 18
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; member = map:{
+                ; tableName = member
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; MEMBER_NAME = map:{
+                        ; columnName = MEMBER_NAME
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 100
+                            ; previous = 180
+                        }
+                    }
+                }
+            }
+            ; member_following = map:{
+                ; tableName = member_following
+                ; diffType = CHANGE
+                ; indexDiff = map:{
+                    ; IX_MEMBER_FOLLOWING_YOUR_MEMBER = map:{
+                        ; constraintName = IX_MEMBER_FOLLOWING_YOUR_MEMBER
+                        ; diffType = ADD
+                    }
+                    ; IX_MEMBER_FOLLOWING_UNIQUE_REVERSE = map:{
+                        ; constraintName = IX_MEMBER_FOLLOWING_UNIQUE_REVERSE
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; member_security = map:{
+                ; tableName = member_security
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; LOGIN_PASSWORD = map:{
+                        ; columnName = LOGIN_PASSWORD
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 100
+                            ; previous = 50
+                        }
+                    }
+                }
+            }
+            ; summary_product = map:{
+                ; tableName = summary_product
+                ; diffType = DELETE
+            }
+            ; summary_withdrawal = map:{
+                ; tableName = summary_withdrawal
+                ; diffType = DELETE
+            }
+        }
+    }
+}
